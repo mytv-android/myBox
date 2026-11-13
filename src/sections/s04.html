@@ -1,0 +1,239 @@
+      <article class="screen" id="s04">
+        <header class="screen-head">
+          <div><span class="code">S04</span><h3>切源面板</h3></div>
+          <p class="lede">myBox 最常用的操作。一个面板里同时完成三层选择：哪个仓库（或媒体服务器）、哪条线路、哪个站点。默认按「最近使用」排序，并带上每个站点的实测延迟，选源时不用盲猜。</p>
+          <div class="acts"><a class="dbtn outlined sm" data-fb="S04 切源面板"><i class="ms">rate_review</i>对这一屏提意见</a></div>
+        </header>
+        <div class="stage">
+          <figure class="dev" data-dev="phone" style="--disp:330px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="brand">
+                <div class="hero" style="position:absolute;left:0;right:0;top:0;height:560px"><div class="hero-img" data-backdrop="p1"></div><div class="hero-shade"></div></div>
+                <div class="statusbar on-media"><span>21:36</span><span class="sb-ic"><i class="ms">signal_cellular_alt</i><i class="ms">wifi</i><i class="ms">battery_5_bar</i></span></div>
+                <div class="scrim"></div>
+                <div class="sheet haze-thick" style="max-height:none;top:84px">
+                  <div class="handle"></div>
+                  <div class="flex aic px16" style="gap:4px">
+                    <div class="t-hs t-emph f1">切换源</div>
+                    <span class="icon-btn"><i class="ms">speed</i></span>
+                    <span class="icon-btn"><i class="ms">qr_code_scanner</i></span>
+                    <span class="btn text">管理</span>
+                  </div>
+                  <div class="tabs pills px16" style="margin:6px 0 12px" data-pin="1" data-pin-pos="in"><span class="tab on">点播</span><span class="tab">直播</span></div>
+                  <div data-pin="2" data-pin-pos="in"><div class="flex g8 px16" style="overflow:hidden">
+                    <div class="col g4 r-l bg-sc" style="width:112px;padding:10px 12px;flex:none"><span data-shape="cookie4" style="width:28px;height:28px;background:var(--md-primary);color:var(--md-on-primary);display:grid;place-items:center;font:700 12px/1 var(--font-sans)">星</span><b class="t-ts">星河仓</b><span class="t-ls" style="opacity:.8">64 个站点</span></div>
+                    <div class="col g4 r-l bg-ch" style="width:112px;padding:10px 12px;flex:none"><span data-shape="cookie4" style="width:28px;height:28px;background:var(--md-tertiary);color:var(--md-on-tertiary);display:grid;place-items:center;font:700 12px/1 var(--font-sans)">家</span><b class="t-ts">家用精选</b><span class="t-ls c-var">18 个站点</span></div>
+                    <div class="col g4 r-l bg-ch" style="width:112px;padding:10px 12px;flex:none"><span data-shape="clover4" style="width:28px;height:28px;background:#3b2f70;color:#dcd4ff;display:grid;place-items:center;font:700 12px/1 var(--font-sans)">J</span><b class="t-ts">客厅 Jellyfin</b><span class="t-ls c-var">4 个媒体库</span></div>
+                    <div class="col g4 r-l jcc aic" style="width:60px;padding:10px;flex:none;box-shadow:inset 0 0 0 1px var(--md-outline-variant)"><i class="ms c-var">add</i></div>
+                  </div></div>
+                  <div class="flex aic g8 px16" style="margin-top:12px" data-pin="3">
+                    <span class="t-lm c-var" style="width:30px">线路</span>
+                    <span class="btn-group"><span class="btn xs on">线路一 86ms</span><span class="btn xs">线路二 132ms</span><span class="btn xs" style="color:var(--md-error)">线路三 超时</span></span>
+                  </div>
+                  <div class="px16" style="margin-top:14px" data-pin="4"><div class="searchbar" style="height:44px"><i class="ms s20">search</i><span class="sb-text t-bm">在 64 个站点中查找</span></div></div>
+                  <div class="chips px16" style="margin-top:10px"><span class="chip sm on">全部 64</span><span class="chip sm">可搜索 41</span><span class="chip sm">采集 18</span><span class="chip sm">爬虫 39</span><span class="chip sm">网盘 7</span></div>
+                  <div class="group-title" style="padding-top:12px" data-pin="5">最近使用</div>
+                  <div class="list">
+                    <div class="li on rounded" style="margin:0 8px;padding:8px 10px" data-pin="6" data-pin-pos="tr">
+                      <span class="li-lead" data-shape="cookie4" style="width:40px;height:40px;background:var(--md-primary);color:var(--md-on-primary);font:700 15px/1 var(--font-sans)">光</span>
+                      <div class="li-body"><span class="li-h">光年影视</span><span class="li-s flex aic g6"><span class="kind k-cms">采集</span><i class="ms s16">search</i><i class="ms s16">tune</i><span class="dot-ok"></span>86 ms</span></div>
+                      <span class="li-trail"><i class="ms fill" style="color:var(--md-on-secondary-container)">check_circle</i></span>
+                    </div>
+                    <div class="li" style="padding:8px 18px">
+                      <span class="li-lead" data-shape="cookie9" style="width:40px;height:40px;background:var(--md-surface-container-highest);color:var(--md-on-surface);font:700 15px/1 var(--font-sans)">网</span>
+                      <div class="li-body"><span class="li-h">网盘聚合</span><span class="li-s flex aic g6"><span class="kind k-jar">JAR</span><i class="ms s16">search</i><span class="dot-warn"></span>1.2 s</span></div>
+                      <span class="li-trail"><i class="ms">push_pin</i></span>
+                    </div>
+                    <div class="li" style="padding:8px 18px">
+                      <span class="li-lead" data-shape="cookie4" style="width:40px;height:40px;background:var(--md-surface-container-highest);color:var(--md-on-surface);font:700 15px/1 var(--font-sans)">长</span>
+                      <div class="li-body"><span class="li-h">长风资源</span><span class="li-s flex aic g6"><span class="kind k-cms">采集 XML</span><i class="ms s16">search</i><span class="dot-ok"></span>64 ms</span></div>
+                    </div>
+                  </div>
+                  <div class="group-title">全部站点</div>
+                  <div class="list">
+                    <div class="li" style="padding:8px 18px">
+                      <span class="li-lead" data-shape="cookie9" style="width:40px;height:40px;background:var(--md-surface-container-highest);color:var(--md-on-surface);font:700 15px/1 var(--font-sans)">豆</span>
+                      <div class="li-body"><span class="li-h">豆瓣热榜</span><span class="li-s flex aic g6"><span class="kind k-js">JS</span><span>仅浏览</span><span class="dot-ok"></span>120 ms</span></div>
+                    </div>
+                    <div class="li" style="padding:8px 18px;opacity:.55" data-pin="7">
+                      <span class="li-lead" data-shape="cookie9" style="width:40px;height:40px;background:var(--md-surface-container-highest);color:var(--md-on-surface);font:700 15px/1 var(--font-sans)">猫</span>
+                      <div class="li-body"><span class="li-h">猫影视</span><span class="li-s flex aic g6"><span class="kind k-jar">JAR</span><span class="dot-bad"></span>超时 15 s</span></div>
+                      <span class="li-trail"><i class="ms">refresh</i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>手机：底部面板，thick 材质</b>点站点即切换，面板收起并在首页显示可撤销的提示</figcaption>
+          </figure>
+
+          <figure class="dev" data-dev="phone" style="--disp:330px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="p6">
+                <div class="statusbar on-media"><span>21:37</span><span class="sb-ic"><i class="ms">signal_cellular_alt</i><i class="ms">wifi</i><i class="ms">battery_5_bar</i></span></div>
+                <div class="hero" style="position:absolute;left:0;right:0;top:0;height:560px">
+                  <div class="hero-img" data-backdrop="p6"></div>
+                  <div class="hero-shade"></div>
+                  <div class="hero-body" style="bottom:22px">
+                    <div class="hero-dots"><i class="on"></i><i></i><i></i><i></i></div>
+                    <div class="hero-title">第七号站台</div>
+                    <div class="hero-meta"><span class="badge q" style="color:#fff">中字</span><span>2024</span><span>/</span><span>悬疑 惊悚</span></div>
+                    <div class="hero-actions"><span class="btn m"><i class="ms fill">play_arrow</i>播放</span><span class="icon-btn glass" style="width:48px;height:48px"><i class="ms">bookmark_add</i></span></div>
+                  </div>
+                </div>
+                <div class="haze-prog top" style="height:150px"><i></i><i></i><i></i><i></i></div>
+                <div class="topbar">
+                  <span class="source-pill haze-ultrathin" style="max-width:250px;box-shadow:0 0 0 2px var(--md-primary)" data-pin="8"><span class="sp-icon">长</span><span class="sp-text"><span class="sp-cfg" style="color:rgba(255,255,255,.75)">星河仓 线路一</span><span class="sp-site" style="color:#fff">长风资源</span></span><i class="ms" style="color:#fff">unfold_more</i><span class="sp-swipe"><i></i><i></i><i class="on"></i></span></span>
+                  <span class="grow"></span><span class="icon-btn glass"><i class="ms">cast</i></span><span class="avatar" style="width:36px;height:36px">林</span>
+                </div>
+                <div class="abs flex aic jcc" style="top:150px;left:0;right:0;gap:10px;z-index:22;color:#fff">
+                  <i class="ms" style="opacity:.6">chevron_left</i><span class="t-lm" style="opacity:.85">网盘聚合</span><span style="width:24px;height:2px;background:#fff;opacity:.5;border-radius:1px"></span><span class="t-lm">长风资源</span><i class="ms" style="opacity:.25">chevron_right</i>
+                </div>
+                <div class="abs" style="top:560px;left:0;right:0">
+                  <div class="row-head" style="margin-top:4px"><h4>长风资源 最新</h4><span class="more">更多<i class="ms">chevron_right</i></span></div>
+                  <div class="shelf">
+                    <div class="card" style="width:112px"><div class="poster" data-poster="p6"><span class="remark">中字</span></div><span class="c-title">第七号站台</span></div>
+                    <div class="card" style="width:112px"><div class="poster" data-poster="p14"><span class="remark">中字</span></div><span class="c-title">灯塔守望者</span></div>
+                    <div class="card" style="width:112px"><div class="poster" data-poster="p9"><span class="remark">HDR10</span></div><span class="c-title">野火</span></div>
+                    <div class="card" style="width:112px"><div class="poster" data-poster="p19"></div><span class="c-title">破晓行动</span></div>
+                  </div>
+                </div>
+                <div class="snackbar" style="bottom:100px" data-pin="9" data-pin-pos="tr"><i class="ms s20">swap_horiz</i><span>已切换到「长风资源」</span><span class="btn text">撤销</span></div>
+                <nav class="navbar haze-thin"><span class="nav-item on"><span class="ni-ind"><i class="ms">home</i></span>首页</span><span class="nav-item"><span class="ni-ind"><i class="ms">live_tv</i></span>直播</span><span class="nav-item"><span class="ni-ind"><i class="ms">search</i></span>搜索</span><span class="nav-item"><span class="ni-ind"><i class="ms">video_library</i></span>媒体库</span><span class="nav-item"><span class="ni-ind"><i class="ms">person</i></span>我的</span></nav>
+                <div class="gesturebar"></div>
+              </div>
+            </div></div></div>
+            <figcaption><b>手机：在源胶囊上左右滑动</b>不打开面板，直接在最近 3 个站点间切换，首页内容交叉淡入</figcaption>
+          </figure>
+        </div>
+
+        <div class="stage" style="margin-top:28px">
+          <figure class="dev" data-dev="tablet" style="--disp:1100px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="brand">
+                <div class="hero" style="position:absolute;inset:0"><div class="hero-img" data-backdrop="p10"></div><div class="hero-shade"></div></div>
+                <div class="scrim" style="background:rgba(0,0,0,.55)"></div>
+                <div class="abs haze-thick r-xl" style="left:110px;right:110px;top:60px;bottom:60px;z-index:60;display:grid;grid-template-columns:250px 1fr 330px;overflow:hidden">
+                  <div class="col" style="padding:20px 12px;background:color-mix(in srgb, var(--md-surface-container-low) 70%, transparent)" data-pin="1">
+                    <div class="t-ts c-var" style="padding:0 12px 10px">仓库与服务器</div>
+                    <div class="li on rounded" style="padding:8px 12px;min-height:60px"><span class="li-lead" data-shape="cookie4" style="width:36px;height:36px;background:var(--md-primary);color:var(--md-on-primary);font:700 14px/1 var(--font-sans)">星</span><div class="li-body"><span class="li-h t-ts">星河仓</span><span class="li-s">3 条线路，64 站点</span></div></div>
+                    <div class="col g4" style="padding:6px 0 10px 60px" data-pin="2">
+                      <span class="flex aic g8 t-bs" style="color:var(--md-primary);font-weight:700"><span class="dot-ok"></span>线路一<span class="c-var" style="font-weight:400">86 ms</span></span>
+                      <span class="flex aic g8 t-bs c-var"><span class="dot-ok"></span>线路二 132 ms</span>
+                      <span class="flex aic g8 t-bs c-var"><span class="dot-bad"></span>线路三 超时</span>
+                    </div>
+                    <div class="li rounded" style="padding:8px 12px;min-height:60px"><span class="li-lead" data-shape="cookie4" style="width:36px;height:36px;background:var(--md-tertiary);color:var(--md-on-tertiary);font:700 14px/1 var(--font-sans)">家</span><div class="li-body"><span class="li-h t-ts">家用精选</span><span class="li-s">18 站点</span></div></div>
+                    <div class="li rounded" style="padding:8px 12px;min-height:60px"><span class="li-lead" data-shape="clover4" style="width:36px;height:36px;background:#3b2f70;color:#dcd4ff;font:700 14px/1 var(--font-sans)">J</span><div class="li-body"><span class="li-h t-ts">客厅 Jellyfin</span><span class="li-s">192.168.1.20</span></div></div>
+                    <div class="li rounded" style="padding:8px 12px;min-height:60px"><span class="li-lead" data-shape="arch" style="width:36px;height:36px;background:#2e4f57;color:#c9f2fb;font:700 14px/1 var(--font-sans)">N</span><div class="li-body"><span class="li-h t-ts">NAS 影音</span><span class="li-s">WebDAV</span></div></div>
+                    <span class="btn outlined" style="margin:auto 12px 0"><i class="ms">add</i>添加</span>
+                  </div>
+                  <div class="col" style="padding:20px 20px 0;min-width:0">
+                    <div class="flex aic g12"><div class="t-hs t-emph f1">星河仓</div><span class="tabs pills"><span class="tab on">点播</span><span class="tab">直播</span></span></div>
+                    <div class="flex aic g8" style="margin-top:14px"><div class="searchbar f1" style="height:44px"><i class="ms s20">search</i><span class="sb-text t-bm">查找站点</span></div><span class="btn tonal" data-pin="7"><i class="ms">speed</i>全部测速</span></div>
+                    <div class="chips" style="margin-top:12px"><span class="chip sm on">全部 64</span><span class="chip sm">可搜索 41</span><span class="chip sm">采集 18</span><span class="chip sm">JAR 21</span><span class="chip sm">JS 12</span><span class="chip sm">Python 6</span><span class="chip sm">网盘 7</span></div>
+                    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px">
+                      <div class="r-l bg-sc col g6" style="padding:12px" data-pin="6"><div class="flex aic g8"><span data-shape="cookie4" style="width:32px;height:32px;background:var(--md-primary);color:var(--md-on-primary);display:grid;place-items:center;font:700 13px/1 var(--font-sans)">光</span><b class="t-ts f1 ellip">光年影视</b><i class="ms fill s20">check_circle</i></div><div class="flex aic g6 t-ls"><span class="kind k-cms">采集</span><span class="dot-ok"></span>86 ms</div></div>
+                      <div class="r-l bg-c col g6" style="padding:12px"><div class="flex aic g8"><span data-shape="cookie4" style="width:32px;height:32px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 13px/1 var(--font-sans)">长</span><b class="t-ts f1 ellip">长风资源</b></div><div class="flex aic g6 t-ls c-var"><span class="kind k-cms">采集 XML</span><span class="dot-ok"></span>64 ms</div></div>
+                      <div class="r-l bg-c col g6" style="padding:12px"><div class="flex aic g8"><span data-shape="cookie9" style="width:32px;height:32px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 13px/1 var(--font-sans)">网</span><b class="t-ts f1 ellip">网盘聚合</b><i class="ms s18 c-var">push_pin</i></div><div class="flex aic g6 t-ls c-var"><span class="kind k-jar">JAR</span><span class="dot-warn"></span>1.2 s</div></div>
+                      <div class="r-l bg-c col g6" style="padding:12px"><div class="flex aic g8"><span data-shape="cookie9" style="width:32px;height:32px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 13px/1 var(--font-sans)">豆</span><b class="t-ts f1 ellip">豆瓣热榜</b></div><div class="flex aic g6 t-ls c-var"><span class="kind k-js">JS</span><span class="dot-ok"></span>120 ms</div></div>
+                      <div class="r-l bg-c col g6" style="padding:12px"><div class="flex aic g8"><span data-shape="cookie9" style="width:32px;height:32px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 13px/1 var(--font-sans)">剧</span><b class="t-ts f1 ellip">Py 剧场</b></div><div class="flex aic g6 t-ls c-var"><span class="kind k-py">PY</span><span class="dot-ok"></span>310 ms</div></div>
+                      <div class="r-l bg-c col g6" style="padding:12px"><div class="flex aic g8"><span data-shape="gem" style="width:32px;height:32px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 13px/1 var(--font-sans)">云</span><b class="t-ts f1 ellip">云端 API</b></div><div class="flex aic g6 t-ls c-var"><span class="kind k-api">API</span><span class="dot-ok"></span>210 ms</div></div>
+                      <div class="r-l bg-c col g6" style="padding:12px"><div class="flex aic g8"><span data-shape="cookie9" style="width:32px;height:32px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 13px/1 var(--font-sans)">短</span><b class="t-ts f1 ellip">短剧速递</b></div><div class="flex aic g6 t-ls c-var"><span class="kind k-js">JS</span><span class="dot-warn"></span>2.4 s</div></div>
+                      <div class="r-l bg-c col g6" style="padding:12px;opacity:.55"><div class="flex aic g8"><span data-shape="cookie9" style="width:32px;height:32px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 13px/1 var(--font-sans)">猫</span><b class="t-ts f1 ellip">猫影视</b></div><div class="flex aic g6 t-ls c-var"><span class="kind k-jar">JAR</span><span class="dot-bad"></span>超时</div></div>
+                      <div class="r-l bg-c col g6" style="padding:12px"><div class="flex aic g8"><span data-shape="cookie4" style="width:32px;height:32px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 13px/1 var(--font-sans)">海</span><b class="t-ts f1 ellip">海外采集</b></div><div class="flex aic g6 t-ls c-var"><span class="kind k-cms">采集</span><span class="dot-ok"></span>290 ms</div></div>
+                    </div>
+                  </div>
+                  <div class="col g12" style="padding:20px;background:color-mix(in srgb, var(--md-surface-container-high) 60%, transparent)" data-pin="8" data-pin-pos="tr">
+                    <div class="flex aic g12"><span data-shape="cookie4" style="width:56px;height:56px;background:var(--md-primary);color:var(--md-on-primary);display:grid;place-items:center;font:700 22px/1 var(--font-sans)">光</span><div><div class="t-tl t-emph">光年影视</div><div class="t-bs c-var">key: guangnian</div></div></div>
+                    <div class="flex g6 wrap"><span class="kind k-cms">JSON 采集 type 1</span><span class="badge">可搜索</span><span class="badge">快速搜索</span><span class="badge">可筛选</span></div>
+                    <div class="group-card" style="border-radius:16px">
+                      <div class="li" style="min-height:44px"><span class="li-body"><span class="li-s">接口</span><span class="t-bs ellip">https://api.guangnian.example/api.php/provide/vod</span></span></div>
+                      <div class="li" style="min-height:44px"><span class="li-body"><span class="li-s">分类</span><span class="t-bs">电影、剧集、动漫、综艺、纪录片、短剧</span></span></div>
+                      <div class="li" style="min-height:44px"><span class="li-body"><span class="li-s">最近 24 小时</span><span class="t-bs flex aic g6"><span class="dot-ok"></span>可用率 99%，中位延迟 86 ms</span></span></div>
+                    </div>
+                    <div class="flex g8" style="margin-top:auto"><span class="btn tonal f1"><i class="ms">home</i>设为默认</span><span class="btn f1"><i class="ms">swap_horiz</i>切换</span></div>
+                  </div>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>平板与折叠屏展开：三栏面板</b>左栏仓库与线路，中栏站点，右栏是焦点站点的详情与健康度。电视上布局相同，见下方。</figcaption>
+          </figure>
+        </div>
+
+        <div class="stage" style="margin-top:28px">
+          <figure class="dev" data-dev="tv" style="--disp:860px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app tv" data-theme-poster="brand">
+                <div class="hero" style="position:absolute;inset:0;filter:brightness(.35)"><div class="hero-img" data-backdrop="p4"></div></div>
+                <div class="abs" style="inset:0;background:linear-gradient(to right, var(--md-surface) 0%, color-mix(in srgb, var(--md-surface) 88%, transparent) 60%, color-mix(in srgb, var(--md-surface) 70%, transparent))"></div>
+                <div class="abs col g4" style="left:48px;top:40px;width:220px">
+                  <div class="t-ts c-var" style="padding:0 12px 8px">仓库</div>
+                  <div class="li on rounded" style="min-height:52px;padding:6px 12px"><span class="li-lead" data-shape="cookie4" style="width:32px;height:32px;background:var(--md-primary);color:var(--md-on-primary);font:700 13px/1 var(--font-sans)">星</span><div class="li-body"><span class="li-h t-ts">星河仓</span><span class="li-s t-bs">线路一 86 ms</span></div></div>
+                  <div class="li rounded" style="min-height:52px;padding:6px 12px"><span class="li-lead" data-shape="cookie4" style="width:32px;height:32px;background:var(--md-tertiary);color:var(--md-on-tertiary);font:700 13px/1 var(--font-sans)">家</span><div class="li-body"><span class="li-h t-ts">家用精选</span></div></div>
+                  <div class="li rounded" style="min-height:52px;padding:6px 12px"><span class="li-lead" data-shape="clover4" style="width:32px;height:32px;background:#3b2f70;color:#dcd4ff;font:700 13px/1 var(--font-sans)">J</span><div class="li-body"><span class="li-h t-ts">客厅 Jellyfin</span></div></div>
+                  <div class="li rounded" style="min-height:52px;padding:6px 12px"><span class="li-lead" data-shape="arch" style="width:32px;height:32px;background:#2e4f57;color:#c9f2fb;font:700 13px/1 var(--font-sans)">N</span><div class="li-body"><span class="li-h t-ts">NAS 影音</span></div></div>
+                </div>
+                <div class="abs" style="left:290px;top:40px;width:400px">
+                  <div class="flex aic g8" style="margin-bottom:12px"><span class="t-tl t-emph f1">站点</span><span class="chip sm on">点播</span><span class="chip sm">直播</span></div>
+                  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+                    <div class="r-l bg-c col aic g8" style="padding:14px 8px"><span data-shape="cookie4" style="width:44px;height:44px;background:var(--md-secondary-container);color:var(--md-on-secondary-container);display:grid;place-items:center;font:700 16px/1 var(--font-sans)">光</span><span class="t-ts">光年影视</span><span class="t-ls c-var flex aic g4"><span class="dot-ok"></span>86 ms</span></div>
+                    <div class="r-l col aic g8 tv-focus" style="padding:14px 8px;background:var(--md-on-surface);color:var(--md-surface)" data-pin="10"><span data-shape="sunny" style="width:44px;height:44px;background:var(--md-primary);color:var(--md-on-primary);display:grid;place-items:center;font:700 16px/1 var(--font-sans)">长</span><span class="t-ts t-emph">长风资源</span><span class="t-ls flex aic g4" style="opacity:.75"><span class="dot-ok"></span>64 ms</span></div>
+                    <div class="r-l bg-c col aic g8" style="padding:14px 8px"><span data-shape="cookie9" style="width:44px;height:44px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 16px/1 var(--font-sans)">网</span><span class="t-ts">网盘聚合</span><span class="t-ls c-var flex aic g4"><span class="dot-warn"></span>1.2 s</span></div>
+                    <div class="r-l bg-c col aic g8" style="padding:14px 8px"><span data-shape="cookie9" style="width:44px;height:44px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 16px/1 var(--font-sans)">豆</span><span class="t-ts">豆瓣热榜</span><span class="t-ls c-var flex aic g4"><span class="dot-ok"></span>120 ms</span></div>
+                    <div class="r-l bg-c col aic g8" style="padding:14px 8px"><span data-shape="cookie9" style="width:44px;height:44px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 16px/1 var(--font-sans)">剧</span><span class="t-ts">Py 剧场</span><span class="t-ls c-var flex aic g4"><span class="dot-ok"></span>310 ms</span></div>
+                    <div class="r-l bg-c col aic g8" style="padding:14px 8px"><span data-shape="gem" style="width:44px;height:44px;background:var(--md-surface-container-highest);display:grid;place-items:center;font:700 16px/1 var(--font-sans)">云</span><span class="t-ts">云端 API</span><span class="t-ls c-var flex aic g4"><span class="dot-ok"></span>210 ms</span></div>
+                  </div>
+                </div>
+                <div class="abs col g12" style="left:720px;right:40px;top:40px">
+                  <div class="t-tl t-emph">长风资源</div>
+                  <div class="flex g6 wrap"><span class="kind k-cms">XML 采集</span><span class="badge">可搜索</span><span class="badge">可筛选</span></div>
+                  <div class="t-bs c-var">分类：电影、剧集、动漫、综艺、纪录片</div>
+                  <div class="t-bs c-var">最近 24 小时可用率 100%</div>
+                </div>
+                <div class="abs flex aic g20 t-bs" style="left:48px;right:48px;bottom:28px;color:var(--md-on-surface-variant)" data-pin="11">
+                  <span class="flex aic g6"><span class="tv-key">OK</span>切换到此站点</span>
+                  <span class="flex aic g6"><span class="tv-key">◀</span>回到仓库列表</span>
+                  <span class="flex aic g6"><span class="tv-key">长按 OK</span>置顶、测速、隐藏</span>
+                  <span class="flex aic g6"><span class="tv-key">菜单</span>关闭</span>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>电视：菜单键呼出的全屏切源</b>不使用模糊，背景压暗到 35%，信息靠左排列，焦点项反色并放大。</figcaption>
+          </figure>
+        </div>
+
+        <div class="notes">
+          <div><h5><i class="ms">push_pin</i>标注</h5><ol class="pins">
+            <li><b>点播 / 直播</b>：在直播页打开同一个面板时默认选中「直播」，列出 <code>lives[]</code>。</li>
+            <li><b>仓库与服务器</b>：每个配置地址是一个仓库；Emby、Jellyfin、WebDAV 与仓库并列。形状按类型分配（见 2.3）。</li>
+            <li><b>线路</b>：仓库是多仓订阅（<code>urls</code>）时出现，显示各线路的实测延迟；超时线路标红但仍可选。</li>
+            <li><b>查找与筛选</b>：按名称或 key 查找；类型 Chip 由 <code>type</code> 和 <code>api</code> 特征推断（<code>csp_</code> 为 JAR，<code>.js</code> 为 JS，<code>.py</code> 为 Python）。</li>
+            <li><b>最近使用</b>：最多 3 个，正好对应源胶囊的左右滑动顺序。</li>
+            <li><b>站点行</b>：形状图标、名称、类型徽章、能力图标（搜索 = <code>searchable</code>，筛选 = <code>filterable</code>）、健康点与延迟。当前站点整行使用容器色并打勾。</li>
+            <li><b>不可用站点</b>：最近一次测速失败的站点降低不透明度，右侧给出「重试」，排序沉底，但不隐藏。</li>
+            <li><b>源胶囊滑动</b>：滑动中，胶囊下方短暂出现前后两个站点名，松手即切换，并加一圈主色描边提示已变化。</li>
+            <li><b>撤销</b>：切换后 4 秒内可撤销，回到上一个站点及其滚动位置。</li>
+            <li><b>电视焦点</b>：焦点站点图标从曲奇形变为晴日，卡片反色放大。</li>
+            <li><b>按键提示</b>：电视面板底部常驻，告诉用户每个键能做什么。</li>
+          </ol></div>
+          <div><h5><i class="ms">data_object</i>与规范的对应</h5>
+            <table class="map">
+              <tr><th>界面</th><th>字段 / 行为</th></tr>
+              <tr><td>仓库</td><td>配置地址（含 <code>;pk;</code> 密钥、<code>clan://</code> 等 scheme），历史记录 <code>api_history</code></td></tr>
+              <tr><td>线路</td><td>多仓订阅 <code>urls[{url, name}]</code>；默认取第一条可加载的（§3.9），用户手动选择后记住</td></tr>
+              <tr><td>站点列表</td><td><code>sites[]</code> 的 <code>key / name / type / api</code>，默认按 <code>indexs</code> 排序，用户置顶优先</td></tr>
+              <tr><td>能力图标</td><td><code>searchable</code>、<code>quickSearch</code>、<code>filterable</code></td></tr>
+              <tr><td>测速</td><td>并发调用各站点 <code>homeContent</code>，超时取站点 <code>timeout</code>（钳制到 5–60 秒，默认 15）</td></tr>
+              <tr><td>直播 Tab</td><td><code>lives[]</code> 的 <code>name</code>；格式由内容嗅探（txt / m3u）决定，不看扩展名</td></tr>
+              <tr><td>设为默认</td><td>写入 <code>home_api</code>，下次启动直接进入该站点</td></tr>
+            </table>
+            <h5 style="margin-top:24px"><i class="ms">gesture</i>四种切源入口</h5>
+            <ul class="dots">
+              <li><b>点源胶囊</b>：打开本面板（手机底部面板 / 平板三栏 / 电视全屏）。</li>
+              <li><b>滑源胶囊</b>：最近 3 个站点之间直接切换。</li>
+              <li><b>遥控器</b>：菜单键打开面板；首页上按「频道 + / −」在最近站点间切换。</li>
+              <li><b>被动切换</b>：站点加载失败或片源失效时，页面给出「试试其他站点」，直接跳到 <a href="#s09">S09 同名换源</a>。</li>
+            </ul>
+          </div>
+        </div>
+      </article>

@@ -1,0 +1,138 @@
+      <article class="screen" id="s01">
+        <header class="screen-head">
+          <div><span class="code">S01</span><h3>启动与配置加载</h3></div>
+          <p class="lede">只有第一次打开、或者配置地址变了，才会看到这一屏。平时启动直接用上次成功的配置进入首页，新配置在后台下载、校验，准备好了再静默替换。加载过程把每一步摊开给用户看：卡在哪一步、为什么，一目了然。</p>
+          <div class="acts"><a class="dbtn outlined sm" data-fb="S01 启动与配置加载"><i class="ms">rate_review</i>对这一屏提意见</a></div>
+        </header>
+        <div class="stage">
+          <figure class="dev" data-dev="phone" style="--disp:330px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="brand">
+                <div class="hero" style="position:absolute;inset:0"><div class="hero-img" data-backdrop="p14" style="filter:saturate(.7)"></div></div>
+                <div class="abs" style="inset:0;background:linear-gradient(to bottom, color-mix(in srgb, var(--md-surface) 70%, transparent), color-mix(in srgb, var(--md-surface) 90%, transparent) 38%, var(--md-surface) 62%)"></div>
+                <div class="statusbar"><span>21:30</span><span class="sb-ic"><i class="ms">signal_cellular_alt</i><i class="ms">wifi</i><i class="ms">battery_5_bar</i></span></div>
+                <div class="toast-pill" style="top:52px;z-index:5" data-pin="4" data-pin-pos="tr"><i class="ms s18" style="color:var(--md-tertiary)">alt_route</i>线路一超时，已改用线路二</div>
+                <div class="abs col aic" style="top:132px;left:70px;right:70px;gap:14px" data-pin="1" data-pin-pos="tr">
+                  <svg viewBox="0 0 100 100" style="width:112px;height:112px" aria-hidden="true"><rect width="100" height="100" style="fill:var(--md-primary)" clip-path="url(#sh-cookie4)"/><path d="M41 33 69 50 41 67z" style="fill:var(--md-on-primary);stroke:var(--md-on-primary)" stroke-width="8" stroke-linejoin="round"/></svg>
+                  <div style="font:800 40px/1 'Roboto Flex',var(--font-sans);font-stretch:125%;letter-spacing:-.03em">myBox</div>
+                  <div class="t-bm c-var">星河仓 线路二</div>
+                </div>
+                <div class="abs flex aic g16" style="top:368px;left:28px;right:28px" data-pin="2">
+                  <span class="loading-ind contained"></span>
+                  <div class="col g6 f1"><div class="flex jcb"><span class="t-ts">正在准备站点</span><span class="t-lm c-var mono-num">41 / 64</span></div><div class="lin-prog"><i style="width:64%"></i></div></div>
+                </div>
+                <div class="abs haze-thin r-xl" style="top:456px;left:16px;right:16px;padding:12px 14px" data-pin="3" data-pin-pos="tr">
+                  <div class="load-steps">
+                    <div class="ls done"><i class="ms">check_circle</i>下载配置<span class="ls-r">186 KB / 0.4 s</span></div>
+                    <div class="ls done"><i class="ms">check_circle</i>解密<span class="ls-r">;pk; 密钥，AES-ECB</span></div>
+                    <div class="ls done"><i class="ms">check_circle</i>解析<span class="ls-r">跳过 12 处注释</span></div>
+                    <div class="ls done"><i class="ms">check_circle</i>爬虫包 jinenge.jar<span class="ls-r">md5 一致，用缓存</span></div>
+                    <div class="ls now"><i class="ms">progress_activity</i>准备站点<span class="ls-r">41 / 64</span></div>
+                    <div class="ls wait"><i class="ms">radio_button_unchecked</i>直播源与壁纸</div>
+                  </div>
+                </div>
+                <div class="abs col aic g4" style="bottom:40px;left:70px;right:70px" data-pin="5" data-pin-pos="tr">
+                  <span class="btn text"><i class="ms">history</i>先看观看历史</span>
+                  <span class="t-bs c-var">站点准备好后会自动进入首页</span>
+                </div>
+                <div class="gesturebar"></div>
+              </div>
+            </div></div></div>
+            <figcaption><b>手机：首次加载</b>背景是配置里的 <code>wallpaper</code>，下载前用品牌渐变</figcaption>
+          </figure>
+
+          <figure class="dev" data-dev="phone" style="--disp:330px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="brand">
+                <div class="statusbar"><span>21:31</span><span class="sb-ic"><i class="ms">signal_cellular_alt</i><i class="ms">wifi</i><i class="ms">battery_5_bar</i></span></div>
+                <div class="col g16" style="padding:64px 20px 0">
+                  <span data-shape="cookie9" style="width:64px;height:64px;display:grid;place-items:center;background:var(--md-error-container);color:var(--md-on-error-container)"><i class="ms s32">data_alert</i></span>
+                  <div class="t-hm t-emph">配置无法解析</div>
+                  <div class="t-bm c-var">「家用精选」返回的内容不是有效配置。第 37 行第 5 列附近缺少逗号或右花括号。</div>
+                  <div data-pin="6" data-pin-pos="tr"><div class="code-snip"><span class="ln">34</span>    <span class="k">"api"</span>: <span class="s">"csp_AList"</span>,
+<span class="ln">35</span>    <span class="k">"ext"</span>: <span class="s">"./json/alist.json"</span>
+<span class="ln">36</span>  }
+<span class="bad"><span class="ln">37</span>  {<span class="k">"key"</span>: <span class="s">"douban"</span>, <span class="k">"name"</span>:</span><span class="ln">38</span>    <span class="s">"豆瓣热榜"</span>, <span class="k">"type"</span>: 3,
+<span class="ln">39</span>  <span class="c">// 热门推荐</span>
+<span class="ln">40</span>    <span class="k">"api"</span>: <span class="s">"./js/通用api数据.js"</span>,</div></div>
+                  <div class="col g8">
+                    <span class="t-lm c-var">已尝试的读取方式</span>
+                    <div class="flex g6 wrap"><span class="chip sm"><i class="ms s16 c-err">close</i>明文 JSON</span><span class="chip sm"><i class="ms s16 c-var">remove</i>Base64（无 ** 标记）</span><span class="chip sm"><i class="ms s16 c-var">remove</i>2423 密文</span><span class="chip sm"><i class="ms s16 c-var">remove</i>;pk; 密钥</span></div>
+                  </div>
+                  <div class="group-card" style="border-radius:16px">
+                    <div class="li" style="min-height:48px"><i class="ms li-lead s20">link</i><span class="li-body"><span class="li-s">配置地址</span><span class="t-bs ellip">https://jiayong.example/tv.json</span></span></div>
+                    <div class="li" style="min-height:48px"><i class="ms li-lead s20">schedule</i><span class="li-body"><span class="li-s">上次成功</span><span class="t-bs">昨天 22:41，58 个站点</span></span></div>
+                  </div>
+                  <div class="col g8" data-pin="7" data-pin-pos="tr">
+                    <span class="btn m block"><i class="ms">restore</i>用昨天的配置继续</span>
+                    <div class="flex g8"><span class="btn tonal f1"><i class="ms">refresh</i>重试</span><span class="btn tonal f1"><i class="ms">description</i>查看原文</span><span class="btn tonal f1"><i class="ms">swap_horiz</i>换仓库</span></div>
+                  </div>
+                </div>
+                <div class="gesturebar"></div>
+              </div>
+            </div></div></div>
+            <figcaption><b>手机：解析失败</b>给出出错的行列号与原文，旁边就是恢复办法</figcaption>
+          </figure>
+        </div>
+
+        <div class="stage" style="margin-top:28px">
+          <figure class="dev" data-dev="tv" style="--disp:860px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app tv" data-theme-poster="brand">
+                <div class="hero" style="position:absolute;inset:0"><div class="hero-img" data-backdrop="p14"></div></div>
+                <div class="abs" style="inset:0;background:linear-gradient(to right, var(--md-surface) 0%, color-mix(in srgb, var(--md-surface) 85%, transparent) 50%, color-mix(in srgb, var(--md-surface) 35%, transparent))"></div>
+                <div class="toast-pill" style="top:34px;left:auto;right:48px;transform:none"><i class="ms s18" style="color:var(--md-tertiary)">alt_route</i>线路一超时（15 秒），已改用线路二</div>
+                <div class="abs col g16" style="left:64px;top:64px;width:460px">
+                  <div class="flex aic g16">
+                    <svg viewBox="0 0 100 100" style="width:72px;height:72px" aria-hidden="true"><rect width="100" height="100" style="fill:var(--md-primary)" clip-path="url(#sh-cookie4)"/><path d="M41 33 69 50 41 67z" style="fill:var(--md-on-primary);stroke:var(--md-on-primary)" stroke-width="8" stroke-linejoin="round"/></svg>
+                    <div><div style="font:800 44px/1 'Roboto Flex',var(--font-sans);font-stretch:125%;letter-spacing:-.03em">myBox</div><div class="t-bm c-var" style="margin-top:6px">星河仓 线路二</div></div>
+                  </div>
+                  <div class="flex aic g16" style="margin-top:28px"><span class="loading-ind"></span><div class="col g6 f1"><div class="flex jcb"><span class="t-tm">正在准备站点</span><span class="t-ll c-var mono-num">41 / 64</span></div><div class="lin-prog" style="height:6px"><i style="width:64%"></i></div></div></div>
+                  <div class="load-steps" style="margin-top:8px">
+                    <div class="ls done"><i class="ms">check_circle</i>下载配置<span class="ls-r">0.4 s</span></div>
+                    <div class="ls done"><i class="ms">check_circle</i>解密与解析<span class="ls-r">;pk; 密钥</span></div>
+                    <div class="ls done"><i class="ms">check_circle</i>爬虫包 jinenge.jar<span class="ls-r">已缓存</span></div>
+                    <div class="ls now"><i class="ms">progress_activity</i>准备站点<span class="ls-r">41 / 64</span></div>
+                    <div class="ls wait"><i class="ms">radio_button_unchecked</i>直播源与壁纸</div>
+                  </div>
+                </div>
+                <div class="abs flex aic g24 t-bs" style="left:64px;bottom:36px;color:var(--md-on-surface-variant)" data-pin="8" data-pin-pos="tr">
+                  <span class="flex aic g6"><span class="tv-key">返回</span>先看观看历史</span>
+                  <span class="flex aic g6"><span class="tv-key">菜单</span>换仓库或线路</span>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>电视：首次加载</b>信息靠左，留出 5% 安全边距；不依赖模糊，背景只做渐变压暗</figcaption>
+          </figure>
+        </div>
+
+        <div class="notes">
+          <div><h5><i class="ms">push_pin</i>标注</h5><ol class="pins">
+            <li><b>品牌标记</b>：曲奇 4 形的「盒子」，下方是当前仓库与线路。加载超过 1 秒才出现形变加载指示器。</li>
+            <li><b>当前步骤</b>：能算出进度的步骤（站点准备、jar 下载）用线性进度条和计数；算不出的只显示形变指示器。</li>
+            <li><b>步骤清单</b>：每步写出结果而不是「成功」，例如「md5 一致，用缓存」「跳过 12 处注释」，方便用户和源作者排查。</li>
+            <li><b>线路回退</b>：多仓订阅里某条线路超时，自动试下一条，并在顶部说明换到了哪条。</li>
+            <li><b>不必干等</b>：任何时候都能先进入观看历史；站点准备好后首页自动接管。</li>
+            <li><b>错误定位</b>：宽松解析仍失败时，标出行列号并显示前后几行原文，出错行加红色竖线。</li>
+            <li><b>恢复操作</b>：首选「用上次成功的配置继续」，其次重试、查看完整原文、换仓库。</li>
+            <li><b>电视按键</b>：返回键先看历史，菜单键直接打开 <a href="#s04">S04</a> 的仓库列表。</li>
+          </ol></div>
+          <div><h5><i class="ms">data_object</i>与规范的对应</h5>
+            <table class="map">
+              <tr><th>步骤</th><th>规范依据</th></tr>
+              <tr><td>下载配置</td><td>scheme 处理：<code>clan://</code>、<code>assets://</code>、<code>file://</code>，无 scheme 补 <code>http://</code>（§3.1.1）</td></tr>
+              <tr><td>解密</td><td>按顺序尝试：合法 JSON → <code>**</code> 标记后 Base64 → <code>2423</code> 开头的 AES-CBC → <code>;pk;</code> 密钥 AES-ECB（§3.1.1）</td></tr>
+              <tr><td>解析</td><td>Gson lenient：容忍 <code>//</code> 与 <code>#</code> 注释、单引号、尾逗号（§1.3、§9.3 第 1 条）</td></tr>
+              <tr><td>尾部多余内容</td><td>只读第一个完整 JSON 值，丢弃尾部并在步骤清单里提示（§9.3 第 13 条）</td></tr>
+              <tr><td>爬虫包</td><td><code>spider</code> 的 <code>路径;md5;摘要</code>；md5 不一致不报错，只是重新下载；无 md5 的缓存超过一周视为过期（§3.2、§4.3.2.1）</td></tr>
+              <tr><td>多仓线路</td><td><code>urls[]</code> 按顺序取第一个可加载的，递归深度不超过 8（§3.1.1、§3.9）</td></tr>
+              <tr><td>部分失败</td><td>单条 site 或 parse 解析失败只丢弃该条；<code>sites</code> 缺失视为无点播（§3.1 降级行为）</td></tr>
+              <tr><td>壁纸</td><td><code>wallpaper</code> 三种形态，缓存到 <code>md5(url)</code>，失败进黑名单不重试（§3.7）</td></tr>
+            </table>
+            <ul class="dots" style="margin-top:16px">
+              <li><b>冷启动不阻塞</b>：有缓存配置时跳过本屏，后台刷新；刷新后站点有增减，在首页给一条可关闭的提示。</li>
+              <li><b>超时</b>：myBox 取配置下载 15 秒、jar 下载 30 秒；超时的线路标记为「超时」，在 <a href="#s04">S04</a> 中排到后面。</li>
+            </ul>
+          </div>
+        </div>
+      </article>

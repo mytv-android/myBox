@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>myBox 设计稿</title>
+<meta name="description" content="myBox：兼容 TVBox 协议的影视聚合播放器 UI 设计稿（征求意见稿）。覆盖手机、平板、电视、折叠屏与双屏设备，基于 Material 3 Expressive、Haze 模糊材质与封面动态取色。">
+<meta name="theme-color" content="#140c0c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 4c14 0 18 8 30 16s16 16 16 30-8 18-16 30-16 16-30 16-18-8-30-16S4 64 4 50s8-18 16-30S36 4 50 4z' fill='%23ffb3b0'/%3E%3Cpath d='M40 32 70 50 40 68z' fill='%23571d1d' stroke='%23571d1d' stroke-width='8' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/doc.css">
+<link rel="stylesheet" href="assets/css/extra-a.css">
+<link rel="stylesheet" href="assets/css/extra-b.css">
+<link rel="stylesheet" href="assets/css/extra-c.css">
+</head>
+<body>
+
+<nav class="toc" aria-label="目录">
+  <a class="brand" href="#top">
+    <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" style="fill:var(--md-primary)" clip-path="url(#sh-cookie4)"/><path d="M41 33 69 50 41 67z" style="fill:var(--md-on-primary);stroke:var(--md-on-primary)" stroke-width="8" stroke-linejoin="round"/></svg>
+    <span><b>myBox</b><small>UI 设计稿 v0.1 征求意见</small></span>
+  </a>
+  <button class="icon-btn toc-close" data-toc-toggle aria-label="关闭目录"><i class="ms">close</i></button>
+  <h6>开场</h6>
+  <a class="ti" href="#principles"><span class="code">1</span>设计原则与信息架构</a>
+  <a class="ti" href="#system"><span class="code">2</span>设计系统</a>
+  <a class="ti" href="#color"><span class="code">2.1</span>封面取色</a>
+  <a class="ti" href="#haze"><span class="code">2.2</span>Haze 模糊材质</a>
+  <a class="ti" href="#shape"><span class="code">2.3</span>形状与形变</a>
+  <a class="ti" href="#type"><span class="code">2.4</span>字体</a>
+  <a class="ti" href="#motion"><span class="code">2.5</span>动效</a>
+  <a class="ti" href="#components"><span class="code">2.6</span>组件</a>
+  <a class="ti" href="#adaptive"><span class="code">3</span>自适应：五种设备</a>
+  <h6>界面</h6>
+  <a class="ti" href="#s01"><span class="code">S01</span>启动与配置加载</a>
+  <a class="ti" href="#s02"><span class="code">S02</span>首次使用：添加源</a>
+  <a class="ti" href="#s03"><span class="code">S03</span>首页</a>
+  <a class="ti" href="#s04"><span class="code">S04</span>切源面板</a>
+  <a class="ti" href="#s05"><span class="code">S05</span>源中心</a>
+  <a class="ti" href="#s06"><span class="code">S06</span>分类与筛选</a>
+  <a class="ti" href="#s07"><span class="code">S07</span>聚合搜索</a>
+  <a class="ti" href="#s08"><span class="code">S08</span>详情</a>
+  <a class="ti" href="#s09"><span class="code">S09</span>同名换源</a>
+  <a class="ti" href="#s10"><span class="code">S10</span>播放器</a>
+  <a class="ti" href="#s11"><span class="code">S11</span>解析与嗅探</a>
+  <a class="ti" href="#s12"><span class="code">S12</span>直播</a>
+  <a class="ti" href="#s13"><span class="code">S13</span>节目单与回看</a>
+  <a class="ti" href="#s14"><span class="code">S14</span>我的：历史与收藏</a>
+  <a class="ti" href="#s15"><span class="code">S15</span>Emby / Jellyfin</a>
+  <a class="ti" href="#s16"><span class="code">S16</span>网盘与本地文件</a>
+  <a class="ti" href="#s17"><span class="code">S17</span>投屏与推送</a>
+  <a class="ti" href="#s18"><span class="code">S18</span>设置</a>
+  <a class="ti" href="#s19"><span class="code">S19</span>远程管理</a>
+  <a class="ti" href="#s20"><span class="code">S20</span>提示、错误与空状态</a>
+  <h6>收尾</h6>
+  <a class="ti" href="#tv"><span class="code">5</span>电视交互规范</a>
+  <a class="ti" href="#appendix"><span class="code">6</span>附录与待讨论问题</a>
+</nav>
+<div class="toc-scrim"></div>
+
+<div class="main" id="top">
+  <div class="topnav">
+    <button class="icon-btn" data-toc-toggle aria-label="打开目录"><i class="ms">menu</i></button>
+    <b>myBox</b>
+  </div>
+
+  <!-- ============================== 开场 ============================== -->
+  <header class="opening">
+    <div class="wrap">
+      <div>
+        <div class="wordmark">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" style="fill:var(--md-primary)" clip-path="url(#sh-cookie4)"/><path d="M41 33 69 50 41 67z" style="fill:var(--md-on-primary);stroke:var(--md-on-primary)" stroke-width="8" stroke-linejoin="round"/></svg>
+          <h1>myBox</h1>
+        </div>
+        <p class="lede">一个兼容 <strong>TVBox 配置协议</strong>的影视聚合播放器，同时接入 <strong>Emby / Jellyfin</strong> 与 WebDAV 网盘。这份设计稿画出了它在<strong>手机、平板、电视、折叠屏和双屏设备</strong>上的每一个界面。</p>
+        <p class="stamp">征求意见稿 v0.1，2026 年 11 月 13 日。依据《TVBox 协议与实现规范》v1.3，界面元素均可在规范中找到对应字段。</p>
+        <div class="ctas">
+          <a class="dbtn" href="#s03"><i class="ms">play_arrow</i>从首页开始看</a>
+          <a class="dbtn tonal" href="https://github.com/mytv-android/myBox/issues/new?title=%5B%E6%95%B4%E4%BD%93%5D%20&body=%E8%AE%BE%E5%A4%87%EF%BC%9A%0A%E7%95%8C%E9%9D%A2%E7%BC%96%E5%8F%B7%EF%BC%9A%0A%E6%84%8F%E8%A7%81%EF%BC%9A%0A" target="_blank" rel="noopener"><i class="ms">rate_review</i>提意见</a>
+        </div>
+        <p class="reel-label"><i class="ms s20">palette</i>点一张海报，整份设计稿会用它的颜色重新上色</p>
+        <div class="reel" role="group" aria-label="选择取色海报">
+          <button data-id="p10" data-poster="p10" aria-label="风过长安"></button>
+          <button data-id="p1" data-poster="p1" aria-label="长夜将尽"></button>
+                    <button data-id="p4" data-poster="p4" aria-label="霓虹不眠"></button>
+          <button data-id="p2" data-poster="p2" aria-label="北纬零度"></button>
+          <button data-id="p5" data-poster="p5" aria-label="山河故梦"></button>
+          <button data-id="p11" data-poster="p11" aria-label="深海回声"></button>
+          <button data-id="p7" data-poster="p7" aria-label="白昼流星"></button>
+          <button data-id="p16" data-poster="p16" aria-label="无人区来信"></button>
+                  </div>
+        <div class="seed-readout"></div>
+      </div>
+
+      <figure class="dev" data-dev="tv" style="--disp:820px">
+        <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+          <div class="app tv" data-follow="hero">
+            <div class="hero" style="position:absolute;inset:0">
+              <div class="hero-img" data-follow-bd data-backdrop="p1"></div>
+              <div class="hero-shade" style="background:linear-gradient(to top, var(--md-surface) 0%, color-mix(in srgb, var(--md-surface) 60%, transparent) 26%, transparent 55%), linear-gradient(to right, color-mix(in srgb, var(--md-surface) 92%, transparent) 0%, color-mix(in srgb, var(--md-surface) 50%, transparent) 42%, transparent 70%)"></div>
+            </div>
+            <nav class="tv-nav">
+              <span class="tn-item"><i class="ms">search</i></span>
+              <span class="tn-item on"><i class="ms fill">home</i></span>
+              <span class="tn-item"><i class="ms">live_tv</i></span>
+              <span class="tn-item"><i class="ms">video_library</i></span>
+              <span class="tn-item"><i class="ms">history</i></span>
+              <span class="tn-item" style="margin-top:auto"><i class="ms">settings</i></span>
+            </nav>
+            <div class="abs flex aic g8" style="top:24px;right:32px;z-index:5">
+              <span class="source-pill haze-ultrathin" style="height:40px"><span class="sp-icon" style="width:32px;height:32px">光</span><span class="sp-text"><span class="sp-cfg">星河仓 线路一</span><span class="sp-site">光年影视</span></span><i class="ms">unfold_more</i></span>
+              <span class="t-ts c-var" style="margin-left:8px">21:36</span>
+            </div>
+            <div class="abs col g12" style="left:96px;top:96px;width:440px;z-index:5">
+              <div class="t-film" style="font-size:52px;line-height:1.1;color:#fff" data-follow-title>长夜将尽</div>
+              <div class="meta-line" data-follow-meta></div>
+              <div class="t-bm clamp3" style="color:rgba(255,255,255,.8)" data-follow-desc></div>
+              <div class="flex g12 aic" style="margin-top:8px">
+                <span class="btn m tv-focus white"><i class="ms fill">play_arrow</i>继续播放 第 7 集</span>
+                <span class="btn m glass"><i class="ms">info</i>详情</span>
+                <span class="icon-btn glass lg" style="width:56px;height:56px"><i class="ms">bookmark_add</i></span>
+              </div>
+            </div>
+            <div class="abs" style="left:96px;right:0;bottom:16px;z-index:5">
+              <div class="t-tm" style="margin-bottom:10px">继续观看</div>
+              <div class="flex g12">
+                <div class="poster land" data-backdrop="p4" style="width:196px;border-radius:14px"><div class="prog"><i style="width:62%"></i></div></div>
+                <div class="poster land" data-backdrop="p10" style="width:196px;border-radius:14px"><div class="prog"><i style="width:20%"></i></div></div>
+                <div class="poster land" data-backdrop="p15" style="width:196px;border-radius:14px"><div class="prog"><i style="width:84%"></i></div></div>
+                <div class="poster land" data-backdrop="p11" style="width:196px;border-radius:14px"><div class="prog"><i style="width:40%"></i></div></div>
+              </div>
+            </div>
+          </div>
+        </div></div></div>
+        <figcaption><b>电视首页，960 × 540 dp</b>主题色来自当前影片的封面。换一张海报，按钮、进度条和背景的色调会一起变。</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <!-- ============================== 1 原则与信息架构 ============================== -->
+  <section class="chapter" id="principles">
+    <div class="wrap">
+      <div class="chapter-head"><span class="num">1</span><h2>设计原则与信息架构</h2><p>myBox 是一个空壳：它不带任何内容，所有片单都来自用户填入的配置地址。所以界面要做两件事——让封面和视频成为画面的主角，并让「换一个源」这件高频操作随手可做。</p></div>
+      <div class="grid-2">
+        <div class="panel"><h5>海报是主角，界面是幕布</h5><p class="hint" style="margin:0">默认深色，像放映厅一样把光留给画面。每一屏的主题色从当前封面中提取，按钮、进度条和容器都染上影片自己的颜色；没有封面的页面才使用品牌色「丝绒红」。</p></div>
+        <div class="panel"><h5>切源永远一步之遥</h5><p class="hint" style="margin:0">浏览类页面的左上角始终是「源胶囊」：显示当前仓库和站点，点一下打开切源面板，左右滑动在最近用过的站点间切换。播放失败时，界面直接给出同名影片在其他站点的结果。</p></div>
+        <div class="panel"><h5>玻璃只给浮在内容上的层</h5><p class="hint" style="margin:0">顶栏、底栏、播放控件、面板这些悬浮层用 Haze 模糊材质，让下层的封面色透上来；内容本身保持不透明。没有实时模糊能力的设备（Android 12 以下、低端电视盒）自动换成不透明着色层，版式不变。</p></div>
+        <div class="panel"><h5>一套组件，五种姿态</h5><p class="hint" style="margin:0">按窗口宽度而不是设备类型来排版：紧凑宽度用底部导航，中等宽度换成侧导航轨和双栏，电视使用以焦点为中心的 10 英尺界面。折叠屏的半开与双屏的铰链都被当成布局的分界线。</p></div>
+      </div>
+
+      <h4 class="sub">信息架构</h4>
+      <p class="prose">一级入口五个，电视与平板把它们放进侧导航，手机放在底部导航栏。「媒体库」把 Emby、Jellyfin、WebDAV、AList 和本地文件收在一起；它们在切源面板里与 TVBox 站点并列，统称为「源」。</p>
+      <div class="ia" style="margin-top:20px">
+        <div class="col"><h6><i class="ms fill">home</i>首页</h6><a href="#s03"><code>S03</code>首页推荐</a><a href="#s04"><code>S04</code>切源面板</a><a href="#s06"><code>S06</code>分类与筛选</a><a href="#s08"><code>S08</code>详情</a><a href="#s09"><code>S09</code>同名换源</a><a href="#s10"><code>S10</code>播放器</a><a href="#s11"><code>S11</code>解析与嗅探</a></div>
+        <div class="col"><h6><i class="ms fill">live_tv</i>直播</h6><a href="#s12"><code>S12</code>直播播放与频道列表</a><a href="#s13"><code>S13</code>节目单与回看</a><a href="#s04"><code>S04</code>直播源切换</a></div>
+        <div class="col"><h6><i class="ms fill">search</i>搜索</h6><a href="#s07"><code>S07</code>聚合搜索</a><a href="#s19"><code>S19</code>手机推送搜索词</a></div>
+        <div class="col"><h6><i class="ms fill">video_library</i>媒体库</h6><a href="#s15"><code>S15</code>Emby / Jellyfin</a><a href="#s16"><code>S16</code>WebDAV、AList 与本地</a><a href="#s17"><code>S17</code>投屏与推送</a></div>
+        <div class="col"><h6><i class="ms fill">person</i>我的</h6><a href="#s14"><code>S14</code>历史、收藏、追剧</a><a href="#s05"><code>S05</code>源中心</a><a href="#s18"><code>S18</code>设置</a><a href="#s19"><code>S19</code>远程管理</a><a href="#s01"><code>S01</code>启动</a><a href="#s02"><code>S02</code>添加源</a><a href="#s20"><code>S20</code>提示与错误</a></div>
+      </div>
+      <div class="callout"><i class="ms">info</i><div><b>术语约定。</b>本稿中「仓库」指一个配置地址（规范 §1.2 的「配置」，含多仓订阅 <code>urls</code>）；「线路」指多仓订阅里的一条 <code>urls[]</code>；「站点」指 <code>sites[]</code> 中的一项；「源」是用户口语，泛指以上任意一层以及媒体服务器。界面文案统一使用这几个词。</div></div>
+    </div>
+  </section>
+
+  <!-- ============================== 2 设计系统 ============================== -->
+  <section class="chapter" id="system">
+    <div class="wrap">
+      <div class="chapter-head"><span class="num">2</span><h2>设计系统</h2><p>以 Material 3 Expressive 为骨架：更大胆的形状与弹簧动效、强调型字号、按钮组与悬浮工具栏。在此之上加两层 myBox 自己的东西：Haze 模糊材质，以及从封面中提取的动态配色。</p></div>
+
+      <h4 class="sub" id="color">2.1 封面取色</h4>
+      <div class="prose"><p>每张封面都会经过下面四步得到一个种子色，再由种子色生成整套 Material 配色角色。这一节的取色是<strong>在你的浏览器里实时计算的</strong>，使用的正是 Android 端会用的同一套算法（material-color-utilities 的 Celebi 量化与 Score 评分）。</p></div>
+      <div class="panel" id="color-lab" style="margin-top:20px">
+        <div class="lab">
+          <div class="lab-src">
+            <div class="big" data-poster="p4"></div>
+            <div class="lab-thumbs"></div>
+          </div>
+          <div class="pipe">
+            <div class="pipe-step"><span class="n">1</span><div><h6>缩小封面</h6><p>Coil 解码封面时额外请求一张 48 × 72 的缩略图，只为取色用，不影响显示清晰度。</p><canvas class="pix"></canvas></div></div>
+            <div class="pipe-step"><span class="n">2</span><div><h6>Celebi 量化</h6><p>把 3456 个像素聚成最多 128 种颜色，本张封面得到 <b class="qcount">0</b> 种。下面按像素占比画出前 14 种。</p><div class="qbar"></div></div></div>
+            <div class="pipe-step"><span class="n">3</span><div><h6>Score 评分</h6><p>按色相分布与彩度打分，过滤掉灰色和占比过低的颜色；第一名成为种子色。</p><div class="seeds"></div></div></div>
+            <div class="pipe-step"><span class="n">4</span><div><h6>生成配色方案</h6><p>内容页用 <b>Content</b> 方案，主色贴近海报原色；全局界面用更安静的 <b>Tonal Spot</b>。切换下面的选项看看差别。</p>
+              <div class="ctrl-row" style="margin-bottom:10px">
+                <span class="dseg"><button data-variant="content" aria-pressed="true">Content</button><button data-variant="tonal">Tonal Spot</button><button data-variant="fidelity">Fidelity</button><button data-variant="vibrant">Vibrant</button><button data-variant="expressive">Expressive</button></span>
+              </div>
+              <div class="ctrl-row" style="margin-bottom:14px">
+                <span class="dseg"><button data-labmode="dark" aria-pressed="true">深色</button><button data-labmode="light">浅色</button></span>
+                <span class="dseg"><button data-contrast="0" aria-pressed="true">标准对比度</button><button data-contrast="0.5">中</button><button data-contrast="1">高</button></span>
+              </div>
+              <div class="roles"></div>
+              <div class="ramps" style="margin-top:12px"></div>
+            </div></div>
+          </div>
+          <figure class="dev lab-preview" data-dev="phone" style="--disp:300px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="p4">
+                <div class="statusbar on-media"><span>21:36</span><span class="sb-ic"><i class="ms">signal_cellular_alt</i><i class="ms">wifi</i><i class="ms">battery_5_bar</i></span></div>
+                <div class="backdrop" data-lab-bd data-backdrop="p4" style="height:330px"></div>
+                <div class="topbar" style="background:none"><span class="icon-btn glass"><i class="ms">arrow_back</i></span><span class="grow"></span><span class="icon-btn glass"><i class="ms">cast</i></span><span class="icon-btn glass"><i class="ms">more_vert</i></span></div>
+                <div class="abs col g12 px20" style="top:250px;left:0;right:0">
+                  <div class="flex g16" style="align-items:flex-end">
+                    <div class="poster" data-lab-poster data-poster="p4" style="width:104px;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.5)"></div>
+                    <div class="col g4 f1"><div class="t-film" style="font-size:28px;line-height:1.2" data-lab-title>霓虹不眠</div><div class="t-bs c-var" data-lab-meta>2025 / 中国台湾 / 犯罪</div></div>
+                  </div>
+                  <div class="split-btn" style="margin-top:6px"><span class="btn m" style="flex:1"><i class="ms fill">play_arrow</i>播放 第 3 集</span><span class="btn m"><i class="ms">expand_more</i></span></div>
+                  <div class="flex g8"><span class="btn tonal f1"><i class="ms">bookmark_add</i>收藏</span><span class="btn tonal f1"><i class="ms">swap_horiz</i>换源</span><span class="btn tonal f1"><i class="ms">download</i>缓存</span></div>
+                  <div class="tabs"><span class="tab on">选集</span><span class="tab">简介</span><span class="tab">相关</span></div>
+                  <div class="chips"><span class="chip on">光年影视 1080P</span><span class="chip">长风资源</span><span class="chip">猫影视</span></div>
+                  <div class="ep-grid"><span class="ep watched">1</span><span class="ep watched">2</span><span class="ep cur">3</span><span class="ep">4</span><span class="ep">5</span><span class="ep">6</span><span class="ep">7</span><span class="ep">8</span><span class="ep">9</span><span class="ep">10</span></div>
+                </div>
+                <div class="gesturebar"></div>
+              </div>
+            </div></div></div>
+            <figcaption><b>实时预览</b>详情页按所选方案上色</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="notes">
+        <div><h5><i class="ms">rule</i>取色规则</h5>
+          <ul class="dots">
+            <li><b>何时取色。</b>详情页、播放器和首页 Hero 用当前影片的封面；列表页跟随所在页面；没有封面（设置、源中心）时使用品牌种子色 <code>#9C2C2C</code>。</li>
+            <li><b>缓存。</b>种子色按 <code>vod_pic</code> 的 URL 做键，内存 LRU 128 条，并随观看历史一起落库，下次进入详情页无需等待解码。</li>
+            <li><b>过渡。</b>种子色变化时整套颜色用低刚度弹簧（约 500 ms）插值过渡，不出现硬切。电视首页焦点快速移动时，等焦点停留 300 ms 后再换色，避免闪烁。</li>
+            <li><b>可读性。</b>封面上的文字一律压在渐变遮罩上；配色只取 Material 角色，保证正文对比度不低于 4.5 : 1。设置里提供「高对比度」选项（对应 contrastLevel 1.0）。</li>
+            <li><b>失败兜底。</b>封面过灰（例如黑白片）时 Score 会退回品牌色；用户也可以在设置里关闭动态取色，固定使用品牌色或系统壁纸取色（Android 12+）。</li>
+          </ul>
+        </div>
+        <div><h5><i class="ms">code</i>落地建议</h5>
+          <table class="map">
+            <tr><th>环节</th><th>建议实现</th></tr>
+            <tr><td>图片解码</td><td>Coil 3 加载 <code>vod_pic</code>，取色走单独的 <code>size(48, 72)</code> 请求，开启 <code>allowHardware(false)</code> 才能读像素</td></tr>
+            <tr><td>量化与评分</td><td>MaterialKolor 或 <code>material-color-utilities</code> 的 <code>QuantizerCelebi</code> + <code>Score</code></td></tr>
+            <tr><td>生成方案</td><td><code>DynamicMaterialTheme(seedColor, style = PaletteStyle.Content, animate = true)</code></td></tr>
+            <tr><td>作用范围</td><td>详情、播放器各自包一层主题；导航栏、源胶囊等全局元素用页面主题</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <h4 class="sub" id="haze">2.2 Haze 模糊材质</h4>
+      <div class="prose"><p>模糊层使用 <code>dev.chrisbanes.haze</code> 的 <code>HazeMaterials</code>。五档材质的模糊半径相同（24 dp），区别在着色层的不透明度：越厚，越像一块实心的面板。着色层颜色取自当前配色的 <code>surfaceContainer</code>，所以玻璃本身也带着封面的色调。下面这面海报墙在缓慢滚动，可以看到每一档的透出程度。底部工具栏可以关掉模糊，看看低端设备上的退化效果。</p></div>
+      <div class="haze-demo app" style="margin-top:20px">
+        <div class="wall">
+          <i data-poster="p1"></i><i data-poster="p2"></i><i data-poster="p3"></i><i data-poster="p4"></i><i data-poster="p5"></i><i data-poster="p6"></i><i data-poster="p7"></i><i data-poster="p8"></i>
+          <i data-poster="p9"></i><i data-poster="p10"></i><i data-poster="p11"></i><i data-poster="p12"></i><i data-poster="p13"></i><i data-poster="p14"></i><i data-poster="p15"></i><i data-poster="p16"></i>
+          <i data-poster="p17"></i><i data-poster="p18"></i><i data-poster="p19"></i><i data-poster="p20"></i><i data-poster="p21"></i><i data-poster="p22"></i><i data-poster="p1"></i><i data-poster="p2"></i>
+          <i data-poster="p3"></i><i data-poster="p4"></i><i data-poster="p5"></i><i data-poster="p6"></i><i data-poster="p7"></i><i data-poster="p8"></i><i data-poster="p9"></i><i data-poster="p10"></i>
+        </div>
+        <div class="panes">
+          <div class="pane haze-ultrathin"><b>ultraThin</b><span>着色 45%<br>播放器控件、Hero 上的按钮</span></div>
+          <div class="pane haze-thin"><b>thin</b><span>着色 65%<br>顶栏、底部导航、源胶囊</span></div>
+          <div class="pane haze-regular"><b>regular</b><span>着色 78%<br>播放器侧面板、电视详情浮层</span></div>
+          <div class="pane haze-thick"><b>thick</b><span>着色 88%<br>底部面板、切源面板</span></div>
+          <div class="pane haze-ultrathick"><b>ultraThick</b><span>着色 95%<br>对话框、菜单</span></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div><h5><i class="ms">layers</i>用在哪里</h5>
+          <table class="map">
+            <tr><th>界面层</th><th>材质</th><th>说明</th></tr>
+            <tr><td>首页顶栏</td><td>渐进模糊</td><td><code>HazeProgressive.verticalGradient</code>，上沿最糊、向下淡出，Hero 图不被一刀切开</td></tr>
+            <tr><td>底部导航栏</td><td>thin</td><td>内容滚到下面时透出颜色</td></tr>
+            <tr><td>源胶囊</td><td>ultraThin / thin</td><td>压在 Hero 上时用 ultraThin，滚动吸顶后换 thin</td></tr>
+            <tr><td>播放器控件</td><td>ultraThin</td><td>只给按钮底座，进度条区域用黑色渐变，保证画面清楚</td></tr>
+            <tr><td>播放器侧面板</td><td>regular，黑色着色</td><td>选集、线路、字幕等面板，透出画面但不抢眼</td></tr>
+            <tr><td>切源面板、底部面板</td><td>thick</td><td>信息密度高，需要接近实心</td></tr>
+            <tr><td>对话框、菜单</td><td>ultraThick</td><td>阅读型内容，几乎不透</td></tr>
+          </table>
+        </div>
+        <div><h5><i class="ms">devices</i>性能与退化</h5>
+          <ul class="dots">
+            <li><b>实时模糊只在 Android 12（API 31）以上启用</b>，依赖 RenderEffect。更低版本由 Haze 自动退化为着色层；本稿的「模糊」开关模拟的就是这种状态，所有界面在关掉模糊后仍然成立。</li>
+            <li><b>电视默认关闭模糊。</b>大量电视盒子停留在 Android 9 到 11，且 GPU 弱；电视界面从一开始就按「不透明着色层 + 渐变」设计，模糊只是锦上添花，可在设置中手动开启。</li>
+            <li><b>同一屏最多三个模糊区域</b>，并且模糊源（<code>hazeSource</code>）只挂在 Hero 图和列表容器上，不挂在每张卡片上。</li>
+            <li><b>系统「减少透明度」</b>或省电模式开启时，强制使用退化样式。</li>
+            <li>着色层上叠一层 7% 的噪点纹理，避免大面积模糊出现色带。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 class="sub" id="shape">2.3 形状与形变</h4>
+      <div class="prose"><p>M3 Expressive 引入了一整套可互相形变的形状。myBox 用它们表达「这是谁」：每个站点、仓库和媒体服务器都会被分配一个固定形状作为图标底座，比纯色圆点更好认。鼠标移到下面的形状上，可以看到它弹性地形变成另一个形状。</p></div>
+      <div class="panel" style="margin-top:20px"><div class="shapes" id="shape-lib"></div></div>
+      <div class="notes">
+        <div><h5><i class="ms">category</i>形状分配</h5>
+          <table class="map">
+            <tr><th>对象</th><th>形状</th></tr>
+            <tr><td>采集站（type 0/1）</td><td>曲奇 4（方正，像一个「盒子」）</td></tr>
+            <tr><td>爬虫站（JAR / JS / Python）</td><td>曲奇 9</td></tr>
+            <tr><td>HTTP API（type 4）</td><td>宝石</td></tr>
+            <tr><td>Emby / Jellyfin</td><td>四叶</td></tr>
+            <tr><td>WebDAV / AList / 本地</td><td>拱形（像文件夹）</td></tr>
+            <tr><td>直播源</td><td>胶囊</td></tr>
+            <tr><td>用户头像</td><td>圆，选中时变为晴日</td></tr>
+          </table>
+        </div>
+        <div><h5><i class="ms">animation</i>形变用在哪里</h5>
+          <ul class="dots">
+            <li><b>按下按钮</b>：圆角从全圆收到 8 dp，松手弹回（按钮组、分体按钮同理）。</li>
+            <li><b>选中项</b>：当前集数、当前站点的底座从圆角矩形变成胶囊或曲奇，选中关系一眼可辨。</li>
+            <li><b>加载指示器</b>：七个形状循环形变并旋转，用于配置加载、搜索中、解析中等等待 1 秒以上的场景；更短的等待不显示任何指示。</li>
+            <li><b>电视焦点</b>：获得焦点的站点图标由圆变为晴日，配合放大与白色描边。</li>
+          </ul>
+          <div class="flex g16 aic app" style="background:none;height:auto;margin-top:12px"><span class="loading-ind"></span><span class="loading-ind contained"></span><span class="t-bm c-var">LoadingIndicator，普通 / 带容器</span></div>
+        </div>
+      </div>
+
+      <h4 class="sub" id="type">2.4 字体</h4>
+      <div class="prose"><p>片名用思源宋体 Heavy，取电影片头字幕的气质；其余所有文字用无衬线：拉丁字母与数字用 Roboto Flex（可变字宽，配合 M3 Expressive 的强调字号），中文跟随系统（PingFang、HarmonyOS Sans、MiSans、思源黑体）。宋体只出现在片名、Hero 标题和人物首字上。</p></div>
+      <div class="panel" style="margin-top:20px">
+        <div class="type-row"><span class="tk">片名 Display<br>宋体 900 / 57</span><span class="t-film" style="font-size:57px;line-height:1.1">山河故梦</span></div>
+        <div class="type-row"><span class="tk">片名 Headline<br>宋体 900 / 32</span><span class="t-film" style="font-size:32px;line-height:1.25">潮汐之城</span></div>
+        <div class="type-row"><span class="tk">Headline Small 强调<br>黑体 700 / 24</span><span style="font:700 24px/32px var(--font-sans)">继续观看</span></div>
+        <div class="type-row"><span class="tk">Title Medium<br>黑体 500 / 16</span><span class="t-tm">光年影视，更新至 12 集</span></div>
+        <div class="type-row"><span class="tk">Body Medium<br>黑体 400 / 14</span><span class="t-bm" style="max-width:40em">暴雨夜的连环失踪案，把退休刑警和他当年放走的嫌疑人重新拴在一起。天亮之前，两人必须找到第七个孩子。</span></div>
+        <div class="type-row"><span class="tk">Label Medium<br>黑体 500 / 12</span><span class="t-lm">4K HDR 杜比视界 1080P 更新至 28 集</span></div>
+        <div class="type-row"><span class="tk">数字<br>Roboto Flex 等宽数字</span><span style="font:600 28px/1.2 'Roboto Flex',sans-serif;font-variant-numeric:tabular-nums;font-stretch:112%">00:42:18 / 01:58:06  8.7  1080P  128 ms</span></div>
+      </div>
+      <div class="callout"><i class="ms">tv</i><div><b>电视字号放大 1.25 倍。</b>电视界面以 960 × 540 dp 为画布，正文不小于 16 dp，按 3 米观看距离计算；焦点项的标题使用强调字重（700），不依赖颜色区分。</div></div>
+
+      <h4 class="sub" id="motion">2.5 动效</h4>
+      <div class="prose"><p>沿用 M3 Expressive 的物理弹簧：空间位移类（位置、尺寸、形状）可以轻微过冲，效果类（颜色、透明度）不过冲。下面的曲线是本稿 CSS 里使用的弹簧近似；把鼠标移到海报上，体会电视焦点的放大手感。</p></div>
+      <div class="grid-2" style="margin-top:20px">
+        <div class="panel">
+          <h5>空间弹簧（标准）</h5><p class="hint">阻尼比 0.9，刚度 700，用于焦点放大、卡片展开、按钮形变</p>
+          <svg class="curve" viewBox="0 0 300 120" preserveAspectRatio="none"><line x1="0" y1="20" x2="300" y2="20"/><path d="M0 110 C 30 110, 40 10, 70 12 S 110 22, 140 19 S 220 20, 300 20"/></svg>
+          <div class="motion-demo"><span class="spring-card" tabindex="0" data-poster="p2"></span><span class="spring-card" tabindex="0" data-poster="p14"></span><span class="spring-card" tabindex="0" data-poster="p18"></span></div>
+        </div>
+        <div class="panel">
+          <h5>令牌与用途</h5><p class="hint">对应 Compose <code>MotionScheme.expressive()</code></p>
+          <table class="map">
+            <tr><th>令牌</th><th>用途</th></tr>
+            <tr><td>spatial fast</td><td>按钮按压形变、开关、Chip 选中</td></tr>
+            <tr><td>spatial default</td><td>电视焦点放大、面板滑入、Hero 切换</td></tr>
+            <tr><td>spatial slow</td><td>海报到详情的共享元素过渡</td></tr>
+            <tr><td>effects default</td><td>封面取色的颜色过渡、模糊强度变化</td></tr>
+          </table>
+          <ul class="dots" style="margin-top:14px">
+            <li><b>共享元素：</b>点海报进入详情，海报从卡片位置飞到详情页左上，背景同时淡入同一封面的大图。</li>
+            <li>系统开启「移除动画」时，所有弹簧改为 150 ms 淡入淡出。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 class="sub" id="components">2.6 组件</h4>
+      <div class="prose"><p>下面是 myBox 在 M3 组件之上新增或改造的部分，颜色跟随当前选中的海报。</p></div>
+      <div class="gallery" style="margin-top:20px">
+        <div class="gi"><div class="app">
+          <span class="source-pill haze-thin" style="align-self:flex-start"><span class="sp-icon">光</span><span class="sp-text"><span class="sp-cfg">星河仓 线路一</span><span class="sp-site">光年影视</span></span><i class="ms">unfold_more</i><span class="sp-swipe"><i></i><i class="on"></i><i></i></span></span>
+        </div><div class="gl"><b>源胶囊</b>上行是仓库与线路，下行是站点。点按打开切源面板，左右滑动在最近 3 个站点间切换，圆点表示位置。</div></div>
+        <div class="gi"><div class="app">
+          <div class="flex g8 aic wrap"><span class="btn xs">超小</span><span class="btn">小</span><span class="btn m">中号</span><span class="btn m sq tonal">方形</span></div>
+          <div class="flex g8 aic wrap"><span class="split-btn"><span class="btn"><i class="ms fill">play_arrow</i>播放</span><span class="btn"><i class="ms">expand_more</i></span></span><span class="btn-group"><span class="btn on">1080P</span><span class="btn">720P</span><span class="btn">自动</span></span></div>
+        </div><div class="gl"><b>按钮、分体按钮与按钮组</b>分体按钮右侧选择「从头播放 / 选择线路」；按钮组用于画质、倍速等互斥选择。</div></div>
+        <div class="gi"><div class="app" style="flex-direction:row;align-items:flex-start;gap:10px">
+          <div class="card" style="width:76px"><div class="poster" data-poster="p8"><span class="score">8.4</span><span class="remark">全 16 集</span></div><span class="c-title">雪落无声</span></div>
+          <div class="card" style="width:76px"><div class="poster oval" data-poster="p18"></div><span class="c-title">圆形 oval</span></div>
+          <div class="card folder" style="width:76px"><div class="poster square"><i class="ms fill">folder</i></div><span class="c-title">文件夹</span></div>
+          <div class="card" style="width:120px"><div class="poster land" data-backdrop="p6"></div><span class="c-title">横版 16:9</span></div>
+        </div><div class="gl"><b>卡片的四种样式</b>由站点返回的 <code>style.type</code>（rect / oval / list）和 <code>ratio</code> 决定；<code>vod_tag = folder</code> 显示为文件夹卡片。</div></div>
+        <div class="gi"><div class="app">
+          <div class="cw-card" style="width:100%"><div class="poster" data-backdrop="p3"></div><svg class="wavy" data-v="0.58" data-w="280"></svg><div class="cw-meta"><b>潮汐之城</b><span>还剩 42 分钟</span></div></div>
+        </div><div class="gl"><b>继续观看卡片</b>进度条使用 M3 Expressive 的波浪进度，播放中的条目波浪会缓慢流动。</div></div>
+        <div class="gi"><div class="app">
+          <div class="flex g6 wrap"><span class="kind k-cms">采集</span><span class="kind k-jar">JAR</span><span class="kind k-js">JS</span><span class="kind k-py">PY</span><span class="kind k-api">API</span><span class="kind k-emby">Emby</span><span class="kind k-jf">Jellyfin</span><span class="kind k-dav">WebDAV</span><span class="kind k-live">直播</span></div>
+          <div class="flex g6 wrap"><span class="badge q">4K</span><span class="badge q">HDR10</span><span class="badge dv">杜比视界</span><span class="badge gold">杜比全景声</span><span class="badge pri">独播</span><span class="badge ter">VIP 解析</span></div>
+        </div><div class="gl"><b>站点类型与画质徽章</b>类型徽章用固定色，不随封面变，保证在任何主题下都能认出「这是哪类源」。</div></div>
+        <div class="gi"><div class="app">
+          <div class="chips wrap"><span class="chip on"><i class="ms">check</i>全部</span><span class="chip">2026</span><span class="chip">中国大陆</span><span class="chip">悬疑</span><span class="chip pill"><i class="ms">tune</i>更多筛选</span></div>
+        </div><div class="gl"><b>筛选 Chip</b>来自站点 <code>filters</code>，每个 key 一行；选中项带对勾并改为容器色。</div></div>
+        <div class="gi"><div class="app" style="align-items:center">
+          <div class="ftoolbar haze-thin"><span class="icon-btn"><i class="ms">replay_10</i></span><span class="icon-btn on"><i class="ms fill">pause</i></span><span class="icon-btn"><i class="ms">forward_10</i></span><span class="icon-btn"><i class="ms">subtitles</i></span><span class="icon-btn"><i class="ms">cast</i></span></div>
+        </div><div class="gl"><b>悬浮工具栏</b>手机竖屏小窗播放、折叠屏桌面模式下半屏的主控件。</div></div>
+        <div class="gi"><div class="app" style="align-items:flex-end">
+          <div class="fab-menu"><span class="fm-item"><i class="ms">qr_code_scanner</i>扫码添加</span><span class="fm-item"><i class="ms">link</i>输入配置地址</span><span class="fm-item"><i class="ms">dns</i>连接媒体服务器</span><span class="fm-close"><i class="ms">close</i></span></div>
+        </div><div class="gl"><b>FAB 菜单</b>源中心的「添加」，展开为三种添加方式。</div></div>
+        <div class="gi"><div class="app">
+          <div class="ep-grid"><span class="ep watched">1</span><span class="ep watched">2</span><span class="ep watched">3</span><span class="ep cur">4</span><span class="ep">5</span></div>
+          <div class="flex g8 aic"><span class="t-ls c-var">已看</span><span class="ep watched" style="width:44px;height:32px">2</span><span class="t-ls c-var">正在看</span><span class="ep cur" style="width:56px;height:32px">4</span></div>
+        </div><div class="gl"><b>选集</b>已看集数加下划线并降低对比，正在看的一集变成胶囊形并标出声波图标。</div></div>
+        <div class="gi"><div class="app">
+          <div class="flex aic g16"><span class="t-bm" style="width:56px">倍速</span><div class="slider"><span class="sl-trk"></span><span class="sl-act" style="width:40%"></span><span class="sl-thumb" style="left:41%"></span></div><span class="t-ll">1.5×</span></div>
+          <div class="flex aic jcb"><span class="t-bm">跳过片头片尾</span><span class="switch on"></span></div>
+        </div><div class="gl"><b>滑块与开关</b>M3 Expressive 的粗轨道滑块，适合电视用左右键调节。</div></div>
+        <div class="gi"><div class="app" style="min-height:160px;position:relative">
+          <div class="snackbar" style="position:relative;left:0;right:0;bottom:0"><span>已切换到「长风资源」</span><span class="btn text">撤销</span></div>
+          <div class="toast-pill" style="position:relative;left:0;transform:none;align-self:flex-start"><i class="ms s18">speed</i>2.0× 快进中</div>
+        </div><div class="gl"><b>Snackbar 与播放器提示</b>切源后给撤销；播放器内的短提示用胶囊浮层，不遮挡字幕区。</div></div>
+        <div class="gi"><div class="app" style="flex-direction:row;align-items:center;gap:24px">
+          <span class="loading-ind"></span>
+          <div class="col g8 f1"><span class="t-ts">正在加载配置</span><div class="lin-prog"><i style="width:64%"></i></div><span class="t-bs c-var">解析 sites（41 / 64）</span></div>
+        </div><div class="gl"><b>加载与进度</b>能算出进度时用线性进度条，算不出时用形变加载指示器。</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 3 自适应 ============================== -->
+  <section class="chapter" id="adaptive">
+    <div class="wrap">
+      <div class="chapter-head"><span class="num">3</span><h2>自适应：五种设备</h2><p>布局按窗口尺寸类别切换，而不是按设备型号。折叠屏展开、平板分屏、双屏跨屏时，同一个界面会在几种布局之间平滑过渡；电视单独使用以焦点为中心的界面。</p></div>
+      <div class="wsc">
+        <div><b>紧凑</b>宽度 &lt; 600 dp<div class="bar" style="width:30%"></div>手机竖屏、折叠屏外屏。底部导航栏，单栏。</div>
+        <div><b>中等</b>600 – 839 dp<div class="bar" style="width:50%"></div>折叠屏展开竖握、小平板竖屏。导航轨，列表 + 详情双栏可选。</div>
+        <div><b>展开</b>840 – 1199 dp<div class="bar" style="width:68%"></div>平板横屏、折叠屏展开横握。导航轨，双栏。</div>
+        <div><b>大 / 超大</b>≥ 1200 dp<div class="bar" style="width:88%"></div>大平板、桌面窗口。展开式导航轨，三栏。</div>
+        <div><b>电视</b>960 × 540 dp<div class="bar" style="width:100%;background:var(--md-tertiary)"></div>以 D-pad 焦点驱动，侧边导航抽屉，留出 5% 安全边距。</div>
+      </div>
+      <!-- @include sections/adaptive.html -->
+    </div>
+  </section>
+
+  <!-- ============================== 4 界面 ============================== -->
+  <section class="chapter" id="screens">
+    <div class="wrap">
+      <div class="chapter-head"><span class="num">4</span><h2>界面</h2><p>按用户的使用路径排列，从第一次打开到看完一部剧。每一屏都给出主要设备形态、标注说明，以及它与《TVBox 协议与实现规范》中字段的对应关系。黄色数字是标注，可以用底部工具栏隐藏。</p></div>
+      <!-- @include sections/s01.html -->
+      <!-- @include sections/s02.html -->
+      <!-- @include sections/s03.html -->
+      <!-- @include sections/s04.html -->
+      <!-- @include sections/s05.html -->
+      <!-- @include sections/s06.html -->
+      <!-- @include sections/s07.html -->
+      <!-- @include sections/s08.html -->
+      <!-- @include sections/s09.html -->
+      <!-- @include sections/s10.html -->
+      <!-- @include sections/s11.html -->
+      <!-- @include sections/s12.html -->
+      <!-- @include sections/s13.html -->
+      <!-- @include sections/s14.html -->
+      <!-- @include sections/s15.html -->
+      <!-- @include sections/s16.html -->
+      <!-- @include sections/s17.html -->
+      <!-- @include sections/s18.html -->
+      <!-- @include sections/s19.html -->
+      <!-- @include sections/s20.html -->
+    </div>
+  </section>
+
+  <!-- ============================== 5 电视交互 ============================== -->
+  <!-- @include sections/tv.html -->
+
+  <!-- ============================== 6 附录 ============================== -->
+  <!-- @include sections/appendix.html -->
+
+  <footer class="end">
+    <div class="wrap">
+      <div>myBox UI 设计稿 v0.1。片名、海报、人物与站点名称均为虚构，海报由页面脚本实时绘制。</div>
+      <div><a href="https://github.com/mytv-android/myBox" target="_blank" rel="noopener">github.com/mytv-android/myBox</a></div>
+    </div>
+  </footer>
+</div>
+
+<div class="doc-bar haze-thin" role="toolbar" aria-label="设计稿显示选项">
+  <button id="tg-pins" title="显示或隐藏黄色标注"><i class="ms">pin_drop</i><span class="lbl">标注</span></button>
+  <button id="tg-blur" title="关闭后模拟不支持实时模糊的设备"><i class="ms">blur_on</i><span class="lbl">模糊</span></button>
+  <span class="sep"></span>
+  <button id="tg-dark" title="切换设计稿的深色与浅色"><i class="ms">dark_mode</i><span class="lbl">深色</span></button>
+  <a class="dbtn sm" href="https://github.com/mytv-android/myBox/issues/new?title=%5B%E6%95%B4%E4%BD%93%5D%20&body=%E8%AE%BE%E5%A4%87%EF%BC%9A%0A%E7%95%8C%E9%9D%A2%E7%BC%96%E5%8F%B7%EF%BC%9A%0A%E6%84%8F%E8%A7%81%EF%BC%9A%0A" target="_blank" rel="noopener" style="margin-left:4px"><i class="ms">rate_review</i><span class="lbl">提意见</span></a>
+</div>
+
+<script src="assets/js/posters.js"></script>
+<script src="assets/js/shapes.js"></script>
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

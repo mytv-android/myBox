@@ -1,0 +1,344 @@
+      <article class="screen" id="s10">
+        <header class="screen-head">
+          <div><span class="code">S10</span><h3>播放器</h3></div>
+          <p class="lede">播放器只在画面上留必要的东西：标题、进度和几颗按钮。其余设置都收进右侧面板，面板用压暗的 thick 材质，画面在后面继续播放。进度条上标出片头片尾和章节，跳过片头之后给一个可以撤销的提示。</p>
+          <div class="acts"><a class="dbtn outlined sm" data-fb="S10 播放器"><i class="ms">rate_review</i>对这一屏提意见</a></div>
+        </header>
+
+        <div class="stage">
+          <figure class="dev" data-dev="phone-land" style="--disp:900px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="p1">
+                <div class="player">
+                  <div class="frame" data-backdrop="p1"></div>
+                  <div class="danmaku-layer" style="top:62px;height:150px">
+                    <span style="left:58%;top:6px">这雨下得我都觉得冷</span>
+                    <span style="left:22%;top:34px;color:#ffd84d">第七个孩子到底是谁</span>
+                    <span style="left:71%;top:62px;opacity:.85">老周这个眼神绝了</span>
+                    <span style="left:40%;top:90px;color:#9fe3ff">前面的别剧透</span>
+                  </div>
+                  <div class="subtitle-line" style="bottom:134px">你当年放他走的时候，就该想到今天。</div>
+                  <div class="pl-shade"></div>
+                  <div class="pl-top" style="padding:18px 40px 0 44px">
+                    <span class="icon-btn" data-pin="1" data-pin-pos="bl"><i class="ms" style="color:#fff">arrow_back</i></span>
+                    <div class="pl-title"><b>长夜将尽 第 7 集</b><span>光年影视 / 光年 1080P</span></div>
+                    <span class="badge q" style="color:#fff">1080P</span>
+                    <span class="icon-btn"><i class="ms" style="color:#fff">cast</i></span>
+                    <span class="icon-btn"><i class="ms" style="color:#fff">picture_in_picture_alt</i></span>
+                    <span class="icon-btn"><i class="ms" style="color:#fff">more_vert</i></span>
+                    <span class="t-lm mono-num" style="opacity:.85;margin-left:4px">21:40</span>
+                  </div>
+                  <span class="icon-btn glass abs" style="left:46px;top:50%;margin-top:-20px" data-pin="2"><i class="ms">lock_open</i></span>
+                  <span class="icon-btn glass abs" style="right:40px;top:50%;margin-top:-20px"><i class="ms">photo_camera</i></span>
+                  <div class="pl-center" data-pin="3" data-pin-pos="tr">
+                    <span class="icon-btn" style="width:56px;height:56px"><i class="ms s32" style="color:#fff">replay_10</i></span>
+                    <span class="pl-play" style="border-radius:24px"><i class="ms">pause</i></span>
+                    <span class="icon-btn" style="width:56px;height:56px"><i class="ms s32" style="color:#fff">forward_10</i></span>
+                  </div>
+                  <span class="toast-pill" style="left:44px;bottom:92px;transform:none" data-pin="4" data-pin-pos="tr"><i class="ms s18">fast_forward</i>已跳过片头 1:32<b style="color:var(--md-primary);margin-left:6px">撤销</b></span>
+                  <div class="pl-bottom" style="padding:0 40px 16px 44px">
+                    <div class="seekbar" data-pin="5" data-pin-pos="in">
+                      <div class="sk-trk"></div>
+                      <div class="sk-skip" style="left:0;width:3.4%"></div>
+                      <div class="sk-skip" style="left:95.2%;width:4.8%"></div>
+                      <div class="sk-buf" style="width:52%"></div>
+                      <div class="sk-act" style="width:41%"></div>
+                      <div class="sk-mark" style="left:22%"></div><div class="sk-mark" style="left:63%"></div>
+                      <div class="sk-thumb" style="left:41%"></div>
+                    </div>
+                    <div class="pl-ctrls">
+                      <span class="icon-btn"><i class="ms fill">pause</i></span>
+                      <span class="icon-btn"><i class="ms fill">skip_next</i></span>
+                      <span class="t-lm mono-num" style="opacity:.9;margin:0 8px">18:42 / 45:10</span>
+                      <span class="flex aic g8" style="height:36px;padding:0 6px 0 4px;border-radius:18px;background:rgba(255,255,255,.12);margin-left:8px" data-pin="6" data-pin-pos="tr">
+                        <span class="icon-btn sm" style="width:28px;height:28px"><i class="ms s20 fill" style="color:var(--md-primary)">subtitles</i></span>
+                        <span class="t-bs" style="opacity:.65;width:110px">发一条弹幕</span>
+                      </span>
+                      <span class="grow"></span>
+                      <span class="flex aic" data-pin="7" data-pin-pos="tr">
+                        <span class="pc-txt">选集</span>
+                        <span class="pc-txt">线路</span>
+                        <span class="pc-txt">1.0×</span>
+                        <span class="pc-txt">字幕</span>
+                        <span class="pc-txt on">弹幕</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>手机横屏，控制层</b>点一下画面出现，3 秒无操作淡出；顶部与底部各一层渐变压暗，保证白字可读</figcaption>
+          </figure>
+        </div>
+
+        <div class="stage" style="margin-top:28px">
+          <figure class="dev" data-dev="phone-land" style="--disp:520px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="p4">
+                <div class="player"><div class="frame" data-backdrop="p4" style="filter:brightness(.7)"></div></div>
+                <div class="pl-panel haze-thick haze-tint-black" style="width:380px" data-pin="8" data-pin-pos="in-r">
+                  <div class="flex aic jcb"><div class="col"><h6>选集</h6><span class="pp-sub">霓虹不眠，全 10 集</span></div><span class="flex aic g4 t-bs" style="opacity:.8"><i class="ms s18">swap_vert</i>正序</span></div>
+                  <div class="flex g6"><span class="pl-chip sm on">高清线路</span><span class="pl-chip sm">备用线路</span><span class="pl-chip sm">m3u8</span></div>
+                  <div class="pl-grid c5">
+                    <span class="pl-chip sm" style="opacity:.6">1</span><span class="pl-chip sm" style="opacity:.6">2</span><span class="pl-chip sm on">3</span><span class="pl-chip sm">4</span><span class="pl-chip sm">5</span>
+                    <span class="pl-chip sm">6</span><span class="pl-chip sm">7</span><span class="pl-chip sm">8</span><span class="pl-chip sm">9</span><span class="pl-chip sm">10</span>
+                  </div>
+                  <div class="pp-sec" style="margin-top:6px">片头片尾</div>
+                  <div class="pp-row"><span class="pp-l">跳过片头片尾<span class="pp-v">站点提供：片头 0:00–1:32，片尾最后 2:10</span></span><span class="switch on"></span></div>
+                  <div class="pp-row"><span class="pp-l">自动连播下一集<span class="pp-v">片尾开始时提示，10 秒后播下一集</span></span><span class="switch on"></span></div>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>选集面板</b>线路、集数、片头片尾放在一起</figcaption>
+          </figure>
+
+          <figure class="dev" data-dev="phone-land" style="--disp:520px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="p2">
+                <div class="player"><div class="frame" data-backdrop="p2" style="filter:brightness(.7)"></div></div>
+                <div class="pl-panel haze-thick haze-tint-black" style="width:380px;gap:8px" data-pin="9" data-pin-pos="in-r">
+                  <div class="col"><h6>线路与解析</h6><span class="pp-sub">北纬零度，第 1 集</span></div>
+                  <div class="pp-sec">线路</div>
+                  <div class="pl-li on"><span class="pl-li-b">4K 线路<span class="pl-li-s">直连播放</span></span><span class="pl-li-t">2160P</span></div>
+                  <div class="pl-li"><span class="pl-li-b">奇艺线路<span class="pl-li-s">需要解析，线路名在解析白名单里</span></span><span class="pl-li-t">1080P</span></div>
+                  <div class="pp-sec" style="margin-top:4px">解析（只对需要解析的线路生效）</div>
+                  <div class="pl-grid c3">
+                    <span class="pl-chip sm on"><i class="ms s16">auto_awesome</i>自动</span>
+                    <span class="pl-chip sm">Json 聚合</span>
+                    <span class="pl-chip sm">Json 并发</span>
+                    <span class="pl-chip sm">Web 聚合</span>
+                    <span class="pl-chip sm">普通嗅探</span>
+                    <span class="pl-chip sm bad"><i class="ms s16">block</i>备用解析</span>
+                  </div>
+                  <div class="t-bs" style="opacity:.6">「自动」按顺序逐个尝试，先拿到地址的就用；标红的解析器最近连续失败，排到最后。</div>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>线路与解析面板</b>解析器只在需要时出现，并说明为什么需要</figcaption>
+          </figure>
+
+          <figure class="dev" data-dev="phone-land" style="--disp:520px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="p9">
+                <div class="player"><div class="frame" data-backdrop="p9" style="filter:brightness(.7)"></div></div>
+                <span class="badge abs" style="left:44px;top:22px;background:#fff;color:#000">HDR10</span>
+                <div class="pl-panel haze-thick haze-tint-black" style="width:380px;gap:9px" data-pin="10" data-pin-pos="in-r">
+                  <div class="col"><h6>画质、倍速与画面</h6><span class="pp-sub">野火，HDR10</span></div>
+                  <div class="pp-sec">画质</div>
+                  <div class="flex g6"><span class="pl-chip sm on">4K HDR</span><span class="pl-chip sm">1080P</span><span class="pl-chip sm">720P</span></div>
+                  <div class="pp-sec">倍速</div>
+                  <div class="pl-grid c5"><span class="pl-chip sm">0.5</span><span class="pl-chip sm">0.75</span><span class="pl-chip sm on">1.0</span><span class="pl-chip sm">1.25</span><span class="pl-chip sm">1.5</span><span class="pl-chip sm">2.0</span><span class="pl-chip sm">2.5</span><span class="pl-chip sm">3.0</span><span class="pl-chip sm" style="grid-column:span 2"><i class="ms s16">touch_app</i>长按 2.0</span></div>
+                  <div class="pp-sec">画面比例</div>
+                  <div class="pl-grid c3"><span class="pl-chip sm on">默认</span><span class="pl-chip sm">16:9</span><span class="pl-chip sm">4:3</span><span class="pl-chip sm">铺满</span><span class="pl-chip sm">原始大小</span><span class="pl-chip sm">裁剪填充</span></div>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>画质、倍速与画面面板</b>画质来自站点给的多画质地址；HDR 内容在左上角标出</figcaption>
+          </figure>
+
+          <figure class="dev" data-dev="phone-land" style="--disp:520px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="p3">
+                <div class="player"><div class="frame" data-backdrop="p3" style="filter:brightness(.7)"></div><div class="subtitle-line" style="right:380px;bottom:40px;font-size:16px">退潮的时候，整座城都会露出来。</div></div>
+                <div class="pl-panel haze-thick haze-tint-black" style="width:380px;gap:8px" data-pin="11" data-pin-pos="in-r">
+                  <div class="col"><h6>字幕与音轨</h6><span class="pp-sub">潮汐之城，第 1 集</span></div>
+                  <div class="pl-li on" style="min-height:40px"><span class="pl-li-b">内嵌 国语 简体<span class="pl-li-s">视频自带，按语言自动选中</span></span><i class="ms s20">check</i></div>
+                  <div class="pl-li" style="min-height:40px"><span class="pl-li-b">站点字幕 简中 ASS<span class="pl-li-s">站点标记为默认</span></span></div>
+                  <div class="flex g6"><span class="pl-chip sm" style="flex:1"><i class="ms s16">travel_explore</i>在线搜索</span><span class="pl-chip sm" style="flex:1"><i class="ms s16">folder_open</i>本地文件</span><span class="pl-chip sm" style="flex:1">关闭</span></div>
+                  <div class="pp-row"><span class="pp-l">字号</span><div class="slider" style="flex:none;width:150px"><div class="sl-trk"></div><div class="sl-act" style="width:55%"></div><div class="sl-thumb" style="left:55%"></div></div></div>
+                  <div class="pp-row"><span class="pp-l">时间偏移<span class="pp-v">字幕比声音早时往后调</span></span><span class="stepper"><i class="ms">remove</i><b>-0.5 秒</b><i class="ms">add</i></span></div>
+                  <div class="pp-sec">音轨</div>
+                  <div class="flex g6"><span class="pl-chip sm on">国语 AAC 5.1</span><span class="pl-chip sm">粤语 AAC 2.0</span></div>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>字幕与音轨面板</b>调字号和偏移时，左侧画面上的字幕实时变化</figcaption>
+          </figure>
+
+          <figure class="dev" data-dev="phone-land" style="--disp:520px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="p13">
+                <div class="player"><div class="frame" data-backdrop="p13" style="filter:brightness(.75)"></div>
+                  <div class="danmaku-layer" style="top:40px;right:380px;height:200px">
+                    <span style="left:8%;top:4px">前方高能</span><span style="left:46%;top:30px;color:#ffd84d">这只猫是邮差吗</span><span style="left:20%;top:56px;opacity:.85">泪目</span><span style="left:52%;top:82px;color:#9fe3ff">BGM 是什么</span>
+                  </div>
+                </div>
+                <div class="pl-panel haze-thick haze-tint-black" style="width:380px;gap:8px" data-pin="12" data-pin-pos="in-r">
+                  <div class="flex aic jcb"><div class="col"><h6>弹幕</h6><span class="pp-sub">星际邮差，第 5 集</span></div><span class="switch on"></span></div>
+                  <div class="pl-li" style="min-height:44px"><i class="ms s20" style="color:var(--md-primary)">verified</i><span class="pl-li-b">已匹配 2384 条<span class="pl-li-s">弹幕源按片名与集数找到</span></span><span class="pl-li-t">换一个</span></div>
+                  <div class="pp-row"><span class="pp-l">透明度</span><div class="slider" style="flex:none;width:170px"><div class="sl-trk"></div><div class="sl-act" style="width:80%"></div><div class="sl-thumb" style="left:80%"></div></div></div>
+                  <div class="pp-row"><span class="pp-l">字号</span><div class="slider" style="flex:none;width:170px"><div class="sl-trk"></div><div class="sl-act" style="width:50%"></div><div class="sl-thumb" style="left:50%"></div></div></div>
+                  <div class="pp-row"><span class="pp-l">速度</span><div class="slider" style="flex:none;width:170px"><div class="sl-trk"></div><div class="sl-act" style="width:40%"></div><div class="sl-thumb" style="left:40%"></div></div></div>
+                  <div class="pp-row"><span class="pp-l">显示区域</span><div class="pl-seg" style="width:170px"><span>3 行</span><span class="on">半屏</span><span>满屏</span></div></div>
+                  <div class="pp-row"><span class="pp-l">随机颜色</span><span class="switch"></span></div>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>弹幕面板</b>弹幕只铺在画面上半部分，不压字幕</figcaption>
+          </figure>
+
+          <figure class="dev" data-dev="phone-land" style="--disp:520px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="p7">
+                <div class="player"><div class="frame" data-backdrop="p7" style="filter:brightness(.7)"></div></div>
+                <span class="badge dv abs" style="left:44px;top:22px" data-pin="14" data-pin-pos="tr">杜比视界</span>
+                <div class="pl-panel haze-thick haze-tint-black" style="width:380px;gap:7px" data-pin="13" data-pin-pos="in-r">
+                  <div class="col"><h6>更多</h6><span class="pp-sub">白昼流星，第 1 集</span></div>
+                  <div class="pp-row"><span class="pp-l">播放内核</span><div class="pl-seg" style="width:190px"><span>系统</span><span>IJK</span><span class="on">Exo</span></div></div>
+                  <div class="pp-row"><span class="pp-l">解码</span><div class="pl-seg" style="width:190px"><span class="on">硬解</span><span>软解</span></div></div>
+                  <div class="pp-row"><span class="pp-l">渲染</span><div class="pl-seg" style="width:190px"><span>Texture</span><span class="on">Surface</span></div></div>
+                  <div class="pp-row"><span class="pp-l">快进步长</span><span class="stepper"><i class="ms">remove</i><b>10 秒</b><i class="ms">add</i></span></div>
+                  <div class="pp-row"><span class="pp-l">音频直通<span class="pp-v">把杜比音频原样交给功放</span></span><span class="switch"></span></div>
+                  <div class="pp-row"><span class="pp-l">定时关闭</span><div class="flex g4"><span class="pl-chip sm">关</span><span class="pl-chip sm on">本集结束</span><span class="pl-chip sm">30 分</span></div></div>
+                  <div class="pl-li" style="min-height:40px"><i class="ms s20">open_in_new</i><span class="pl-li-b">用其它播放器打开<span class="pl-li-s">MX Player、Kodi、VLC、Reex</span></span><i class="ms s20">chevron_right</i></div>
+                  <div class="fade-end"></div>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>更多面板</b>内核、解码与渲染只影响这一部片，在设置里改全局默认</figcaption>
+          </figure>
+        </div>
+
+        <div class="stage" style="margin-top:28px">
+          <figure class="dev" data-dev="phone" style="--disp:330px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app" data-theme-poster="p1">
+                <div class="statusbar" style="background:#000;color:#fff"><span>21:41</span><span class="sb-ic"><i class="ms">signal_cellular_alt</i><i class="ms">wifi</i><i class="ms">battery_5_bar</i></span></div>
+                <div class="abs" style="top:40px;left:0;right:0;height:232px;background:#000">
+                  <div class="player">
+                    <div class="frame" data-backdrop="p1"></div>
+                    <div class="subtitle-line" style="bottom:34px;font-size:14px;line-height:20px">他一直在等这场雨。</div>
+                    <div class="g-hud" style="right:18px;top:22px;padding:10px 8px" data-pin="15" data-pin-pos="tr"><i class="ms s20">volume_up</i><span class="g-bar" style="height:72px"><i style="height:64%"></i></span><span class="mono-num">64</span></div>
+                    <span class="toast-pill" style="top:16px;padding:6px 12px;font-size:12px"><i class="ms s16">speed</i>长按 2.0× 快进中</span>
+                    <div class="abs" style="left:12px;right:12px;bottom:6px"><div class="seekbar" style="height:12px"><div class="sk-trk" style="height:3px"></div><div class="sk-act" style="width:42%;height:3px"></div><div class="sk-thumb" style="left:42%;height:12px"></div></div></div>
+                  </div>
+                </div>
+                <div class="abs col g12" style="top:272px;left:0;right:0;bottom:0;padding:16px 16px 0">
+                  <div class="flex aic g8"><div class="f1 col"><span class="t-tl t-emph">长夜将尽</span><span class="t-bs c-var">第 7 集，光年影视，光年 1080P</span></div><span class="icon-btn tonal"><i class="ms">open_in_full</i></span></div>
+                  <div class="btn-group" style="width:100%" data-pin="16" data-pin-pos="tr"><span class="btn on" style="flex:1">选集</span><span class="btn" style="flex:1">线路</span><span class="btn" style="flex:1">字幕</span><span class="btn" style="flex:1">弹幕</span></div>
+                  <div class="flex g8" style="overflow:hidden"><span class="ep watched" style="width:60px;flex:none">5</span><span class="ep watched" style="width:60px;flex:none">6</span><span class="ep cur" style="width:60px;flex:none">7</span><span class="ep" style="width:60px;flex:none">8</span><span class="ep" style="width:60px;flex:none">9</span><span class="ep" style="width:60px;flex:none">10</span></div>
+                  <div class="flex aic g12 r-l bg-c" style="padding:10px 12px">
+                    <div class="poster land" data-backdrop="p1" style="width:96px;border-radius:10px"></div>
+                    <div class="f1 col"><span class="t-bs c-var">接下来</span><span class="t-ts">第 8 集</span><span class="t-bs c-var">本集剩 26 分钟</span></div>
+                    <span class="icon-btn filled sm"><i class="ms fill">skip_next</i></span>
+                  </div>
+                  <div class="t-ts" style="margin-top:4px">同类推荐</div>
+                  <div class="flex g8"><div class="poster" data-poster="p6" style="width:84px"></div><div class="poster" data-poster="p21" style="width:84px"></div><div class="poster" data-poster="p4" style="width:84px"></div><div class="poster" data-poster="p16" style="width:84px"></div></div>
+                  <div class="t-ts" style="margin-top:4px">演职员</div>
+                  <div class="cast"><span class="person"><span class="ph" data-shape="clover4">沈</span><b>沈既白</b>导演</span><span class="person"><span class="ph" data-shape="cookie9">周</span><b>周砚</b>主演</span><span class="person"><span class="ph" data-shape="sunny">林</span><b>林知夏</b>主演</span><span class="person"><span class="ph" data-shape="cookie6">顾</span><b>顾远山</b>主演</span><span class="person"><span class="ph" data-shape="cookie12">许</span><b>许棠</b>主演</span></div>
+                </div>
+                <div class="gesturebar"></div>
+              </div>
+            </div></div></div>
+            <figcaption><b>手机竖屏播放</b>右半屏滑动调音量，左半屏调亮度</figcaption>
+          </figure>
+
+          <figure class="dev" data-dev="fold-table" style="--disp:600px">
+            <div class="dev-zoom"><div class="dev-frame">
+              <div class="ft-half top"><div class="dev-screen">
+                <div class="app" data-theme-poster="p5">
+                  <div class="player"><div class="frame" data-backdrop="p5"></div><div class="subtitle-line" style="bottom:20px">这一段，史书上不会有。</div></div>
+                </div>
+              </div></div>
+              <div class="ft-half bot"><div class="dev-screen">
+                <div class="app" data-theme-poster="p5">
+                  <div class="abs col" style="inset:0;padding:26px 40px;gap:22px" data-pin="17" data-pin-pos="in">
+                    <div class="flex aic g16"><span class="t-tm mono-num">26:10</span><div class="seekbar f1" style="height:28px"><div class="sk-trk" style="height:8px;border-radius:4px;background:var(--md-surface-container-highest)"></div><div class="sk-act" style="width:58%;height:8px;border-radius:4px"></div><div class="sk-thumb" style="left:58%;height:28px;width:6px"></div></div><span class="t-tm mono-num">45:00</span></div>
+                    <div class="flex aic jcc g24"><span class="icon-btn tonal" style="width:72px;height:72px"><i class="ms s32">replay_10</i></span><span class="fab" style="width:120px;height:96px;border-radius:32px;background:var(--md-primary);color:var(--md-on-primary)"><i class="ms s48 fill">pause</i></span><span class="icon-btn tonal" style="width:72px;height:72px"><i class="ms s32">forward_10</i></span></div>
+                    <div class="flex g12 jcc"><span class="btn tonal" style="height:52px;font-size:17px;padding:0 22px">选集</span><span class="btn tonal" style="height:52px;font-size:17px;padding:0 22px">线路</span><span class="btn tonal" style="height:52px;font-size:17px;padding:0 22px">1.0×</span><span class="btn tonal" style="height:52px;font-size:17px;padding:0 22px">字幕</span><span class="btn tonal" style="height:52px;font-size:17px;padding:0 22px">弹幕</span></div>
+                  </div>
+                </div>
+              </div></div>
+            </div></div>
+            <figcaption><b>折叠屏半折（桌面姿态）</b>画面在上半屏，控制条常驻下半屏，不再遮挡画面</figcaption>
+          </figure>
+        </div>
+
+        <div class="stage" style="margin-top:28px">
+          <figure class="dev" data-dev="tv" style="--disp:860px">
+            <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+              <div class="app tv" data-theme-poster="p7">
+                <div class="player">
+                  <div class="frame" data-backdrop="p7"></div>
+                  <div class="pl-shade" style="background:linear-gradient(to bottom, rgba(0,0,0,.65), transparent 28%, transparent 50%, rgba(0,0,0,.85))"></div>
+                  <div class="abs flex" style="left:48px;right:48px;top:30px;align-items:flex-start">
+                    <div class="col g4 f1"><span class="t-film" style="font-size:30px">白昼流星</span><span class="t-bm" style="opacity:.8">第 1 集，光年影视，光年 4K</span></div>
+                    <div class="flex aic g12"><span class="badge dv">杜比视界</span><span class="t-tm mono-num">21:42</span></div>
+                  </div>
+                  <div class="abs col g14" style="left:48px;right:48px;bottom:30px;gap:14px">
+                    <div class="rel" style="height:96px">
+                      <div class="abs col g6" style="left:calc(37% - 80px);bottom:0;width:160px;align-items:center" data-pin="18" data-pin-pos="tr">
+                        <div class="poster land" data-backdrop="p7" style="width:160px;border-radius:10px;box-shadow:0 0 0 2px #fff"></div>
+                        <span class="t-lm mono-num" style="background:#fff;color:#111;padding:2px 8px;border-radius:8px">16:40</span>
+                      </div>
+                    </div>
+                    <div class="seekbar" style="height:24px"><div class="sk-trk" style="height:6px;border-radius:3px"></div><div class="sk-buf" style="width:46%;height:6px"></div><div class="sk-act" style="width:37%;height:6px"></div><div class="sk-thumb" style="left:37%;height:24px;width:6px;background:#fff;box-shadow:0 0 0 4px color-mix(in srgb, var(--md-primary) 60%, transparent)"></div></div>
+                    <div class="flex aic jcb t-ts mono-num" style="opacity:.85"><span>16:40</span><span>1:58:20</span></div>
+                    <div class="flex aic g8" style="align-self:flex-start" data-pin="19" data-pin-pos="tr">
+                      <span class="pl-chip"><i class="ms s20">playlist_play</i>选集</span>
+                      <span class="pl-chip">线路</span>
+                      <span class="pl-chip">画质</span>
+                      <span class="pl-chip">字幕</span>
+                      <span class="pl-chip">音轨</span>
+                      <span class="pl-chip">弹幕</span>
+                      <span class="pl-chip">倍速</span>
+                      <span class="pl-chip">换源</span>
+                      <span class="pl-chip">更多</span>
+                    </div>
+                    <div class="flex aic g20 t-bs" style="opacity:.75;align-self:flex-start" data-pin="20" data-pin-pos="tr"><span class="flex aic g6"><span class="tv-key">左</span><span class="tv-key">右</span>快退快进 10 秒，按住加速</span><span class="flex aic g6"><span class="tv-key">OK</span>暂停</span><span class="flex aic g6"><span class="tv-key">下</span>功能行</span><span class="flex aic g6"><span class="tv-key">菜单</span>更多面板</span></div>
+                  </div>
+                </div>
+              </div>
+            </div></div></div>
+            <figcaption><b>电视，按左右键拖动进度</b>焦点停在进度条上，上方出现预览缩略图；松手 1 秒后跳转</figcaption>
+          </figure>
+        </div>
+
+        <div class="notes">
+          <div><h5><i class="ms">push_pin</i>标注</h5><ol class="pins">
+            <li><b>顶栏</b>：片名、集数、站点与线路。右侧是画质角标、投屏、画中画和更多。HDR 内容在这里同步显示 HDR 或杜比视界角标。</li>
+            <li><b>锁屏</b>：锁定后只保留这颗按钮，误触不会暂停或退出。</li>
+            <li><b>中央按钮</b>：播放时是圆角方形的暂停，暂停时形变成圆形的播放，按下时有弹簧回弹。两侧是快退快进 10 秒，步长可在更多面板里改。</li>
+            <li><b>跳过提示</b>：按站点提供的片头时间自动跳过，并给 5 秒的撤销机会。</li>
+            <li><b>进度条</b>：片头片尾用第三色标出，章节点是小竖线；缓冲段浅一层。拖动时上方出现预览缩略图。</li>
+            <li><b>弹幕输入</b>：左侧图标是弹幕开关，点文字区域弹出输入框。只有站点支持实时弹幕时才显示输入区域。</li>
+            <li><b>功能按钮</b>：选集、线路、倍速、字幕、弹幕，点开都是右侧面板；按钮上直接显示当前值（如 1.0×）。</li>
+            <li><b>选集面板</b>：线路 Chip 在上，集数网格在下，已看的集数变暗；片头片尾与自动连播也放在这里。</li>
+            <li><b>线路与解析</b>：解析器只对需要解析的线路生效，并在线路下说明原因。「自动」排第一，失败多的解析器自动排后。</li>
+            <li><b>画质、倍速与画面</b>：画质来自站点给的多画质地址；倍速 0.5–3.0；画面比例六种。</li>
+            <li><b>字幕与音轨</b>：字幕按「缓存、站点字幕、内嵌轨」的顺序自动选，内嵌轨优先国语；也能在线搜索或选本地文件。字号和时间偏移即时生效。</li>
+            <li><b>弹幕</b>：显示匹配到的条数，可以手动换一个匹配结果；透明度、字号、速度、显示区域、随机颜色。</li>
+            <li><b>更多</b>：内核、解码、渲染、快进步长、音频直通、定时关闭、外部播放器。面板内容超出时底部渐隐，提示可以滚动。</li>
+            <li><b>动态范围角标</b>：面板打开时左上角显示 HDR10 或杜比视界，关闭时收起。</li>
+            <li><b>手势</b>：左半屏上下滑调亮度，右半屏调音量，左右滑拖进度；双击暂停，双击左右边缘快退快进；长按 2 倍速，松手恢复。</li>
+            <li><b>竖屏播放页</b>：画面固定在顶部，下方是分段按钮切换选集、线路、字幕、弹幕，以及「接下来」卡片。</li>
+            <li><b>桌面姿态</b>：折叠屏半折时自动把控制移到下半屏，并放大按钮，方便放在桌上用手指点。</li>
+            <li><b>电视进度</b>：左右键每次 10 秒，按住后加速；预览缩略图跟着走，松手 1 秒后才真正跳转。</li>
+            <li><b>电视功能行</b>：按下键进入，左右移动焦点，OK 打开对应面板；面板与手机相同，改为焦点操作。</li>
+            <li><b>按键提示</b>：控制层出现时常驻底部，3 秒后与控制层一起淡出。</li>
+          </ol></div>
+          <div><h5><i class="ms">data_object</i>与规范的对应</h5>
+            <table class="map">
+              <tr><th>界面</th><th>字段 / 规则</th></tr>
+              <tr><td>起播</td><td><code>playerContent(flag, id, vipFlags)</code>；<code>parse</code>、<code>jx</code> 决定是否进解析（§5.1、§5.2，见 <a href="#s11">S11</a>）</td></tr>
+              <tr><td>请求头</td><td><code>header</code>（对象或字符串化 JSON）；站点头、解析器头、播放头三级覆盖（§8.2）</td></tr>
+              <tr><td>画质</td><td><code>url</code> 为 <code>{"values":[{n,v}],"position":n}</code> 或偶数长度数组（§5.1、§5.4）</td></tr>
+              <tr><td>起播位置</td><td>顶层 <code>position</code>（毫秒）优先，否则用本地进度（§8.9）</td></tr>
+              <tr><td>片头片尾</td><td><code>skips[{type,start,end}]</code>，毫秒，<code>type</code> 为 opening / middle / ending</td></tr>
+              <tr><td>字幕</td><td><code>subs[{url,name,lang,format,flag}]</code>，<code>flag</code> 1 默认、2 强制；加载顺序与在线搜索见 §5.12.1、§5.12.1.1；字幕键 <code>subtitle_text_size</code>、<code>subtitle_time_delay</code></td></tr>
+              <tr><td>弹幕</td><td><code>danmaku</code> 文件为 bilibili XML；实时弹幕走 <code>danmaku(id, emit)</code>（§7.8）；弹幕源搜索 §5.12.2.4；设置键 <code>danmu_open</code>、<code>danmu_alpha</code>、<code>danmu_size_scale</code>、<code>danmu_speed</code>、<code>danmu_max_line</code>、<code>danmu_random_color</code></td></tr>
+              <tr><td>内核与渲染</td><td><code>play_type</code>（0 系统 / 1 IJK / 2 Exo，按分支而变）、<code>play_render</code>、<code>play_scale</code>、<code>play_time_step</code>、<code>player_audio_passthrough</code>（§5.8、§5.8.0）</td></tr>
+              <tr><td>解码</td><td>软解与硬解是两组解码参数，不是一个布尔开关（§5.8.3）</td></tr>
+              <tr><td>外部播放器</td><td><code>pl</code>：10 MX、11 Reex、12 Kodi、14 VLC；VLC 不传请求头（§5.8.3）</td></tr>
+              <tr><td>HDR 与杜比视界</td><td>按流探测结果路由 native-dv / base-hdr / sdr（§5.8.2.1）；HDR 下文本字幕改用应用叠加层绘制（§5.8.2.7）</td></tr>
+              <tr><td>封面与副标题</td><td><code>artwork</code>、<code>desc</code> 用于画中画与系统媒体通知</td></tr>
+              <tr><td>详情更新</td><td><code>list[0]</code> 回传时更新选集面板，保留当前选集（§5.5）</td></tr>
+            </table>
+            <ul class="dots" style="margin-top:16px">
+              <li><b>主题色。</b>播放器整体是黑底白字，只有进度条、选中项和开关取影片封面的主色，换片时跟着变。</li>
+              <li><b>进度保存。</b>每 5 秒、暂停、切集和退出时保存，key 为站点、<code>vod_id</code>、线路与集序号四段（§8.9）。</li>
+              <li><b>后台与画中画。</b>离开应用时进入画中画；系统媒体通知显示封面、片名与集数。</li>
+            </ul>
+          </div>
+        </div>
+      </article>

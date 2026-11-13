@@ -1,0 +1,50 @@
+/* 屏幕专用补充样式（b 组） */
+
+/* ---- 播放器面板（S10 / S11 / S17） ---- */
+.pl-panel { overflow: hidden; }
+.pl-panel .pp-sec { font: 600 12px/16px var(--font-sans); letter-spacing: .4px; opacity: .62; margin-top: 2px; }
+.pl-panel .pp-row { display: flex; align-items: center; gap: 12px; min-height: 36px; font: 400 14px/20px var(--font-sans); }
+.pl-panel .pp-row > .pp-l { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.pl-panel .pp-row .pp-v { font: 400 12px/16px var(--font-sans); opacity: .65; }
+.pl-panel .switch { transform: scale(.82); transform-origin: right center; }
+.pl-panel .slider { height: 30px; }
+.pl-panel .slider .sl-trk, .pl-panel .slider .sl-act { height: 10px; }
+.pl-panel .slider .sl-trk { background: rgba(255,255,255,.16); }
+.pl-panel .slider .sl-thumb { height: 26px; }
+.pl-panel .fade-end { position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(transparent, rgba(0,0,0,.55)); pointer-events: none; }
+.pl-grid { display: grid; gap: 6px; }
+.pl-grid.c3 { grid-template-columns: repeat(3, 1fr); }
+.pl-grid.c4 { grid-template-columns: repeat(4, 1fr); }
+.pl-grid.c5 { grid-template-columns: repeat(5, 1fr); }
+.pl-chip.sm { height: 30px; padding: 0 10px; font-size: 12px; border-radius: 10px; }
+.pl-chip.sm.on { border-radius: 15px; }
+.pl-chip.bad { color: #ffb4ab; }
+.pl-chip.focus { background: #fff; color: #111; transform: scale(1.08); box-shadow: 0 0 0 3px rgba(255,255,255,.35), 0 8px 22px rgba(0,0,0,.5); }
+.pl-li { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 6px 12px; border-radius: 14px; background: rgba(255,255,255,.06); }
+.pl-li .pl-li-b { flex: 1; min-width: 0; display: flex; flex-direction: column; font: 500 14px/18px var(--font-sans); }
+.pl-li .pl-li-s { font: 400 11px/15px var(--font-sans); opacity: .68; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pl-li .pl-li-t { font: 500 12px/16px var(--font-sans); opacity: .8; flex: none; display: flex; align-items: center; gap: 6px; }
+.pl-li.on { background: var(--md-primary); color: var(--md-on-primary); border-radius: 22px; }
+.pl-li.focus { background: #fff; color: #111; transform: scale(1.04); box-shadow: 0 8px 24px rgba(0,0,0,.45); }
+.pl-li.dim { opacity: .55; }
+.pl-seg { display: flex; gap: 2px; }
+.pl-seg > span { flex: 1; height: 34px; display: grid; place-items: center; background: rgba(255,255,255,.1); font: 500 13px/1 var(--font-sans); border-radius: 6px; }
+.pl-seg > span:first-child { border-radius: 17px 6px 6px 17px; }
+.pl-seg > span:last-child { border-radius: 6px 17px 17px 6px; }
+.pl-seg > span.on { background: var(--md-primary); color: var(--md-on-primary); border-radius: 17px; }
+.stepper { display: inline-flex; align-items: center; gap: 2px; height: 34px; border-radius: 17px; background: rgba(255,255,255,.1); padding: 0 3px; flex: none; }
+.stepper b { min-width: 58px; text-align: center; font: 600 13px/1 var(--font-sans); font-variant-numeric: tabular-nums; }
+.stepper .ms { width: 28px; height: 28px; display: grid; place-items: center; font-size: 18px; border-radius: 14px; }
+
+/* 手势提示（亮度 / 音量竖条） */
+.g-hud { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 10px; border-radius: 26px; background: rgba(20,20,20,.62); color: #fff; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); font: 600 12px/1 var(--font-sans); }
+.g-hud .g-bar { position: relative; width: 8px; height: 96px; border-radius: 4px; background: rgba(255,255,255,.25); overflow: hidden; }
+.g-hud .g-bar i { position: absolute; left: 0; right: 0; bottom: 0; border-radius: 4px; background: #fff; }
+
+/* 画面上的倒计时环 */
+.ring { position: relative; flex: none; }
+.ring svg { transform: rotate(-90deg); display: block; }
+.ring b { position: absolute; inset: 0; display: grid; place-items: center; font: 700 15px/1 var(--font-sans); font-variant-numeric: tabular-nums; }
+.pl-li.on .loading-ind path { fill: var(--md-on-primary); }
+.pl-li .loading-ind { flex: none; }
+.loading-ind.fit svg { width: 80%; height: 80%; }

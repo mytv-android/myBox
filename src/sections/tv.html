@@ -1,0 +1,65 @@
+  <section class="chapter" id="tv">
+    <div class="wrap">
+      <div class="chapter-head"><span class="num">5</span><h2>电视交互规范</h2><p>电视是 TVBox 用户最主要的设备。10 英尺界面只有一个输入：遥控器的方向键和确认键。所以电视版的每个界面都先回答一个问题——焦点现在在哪，按一下会去哪。</p></div>
+
+      <div class="stage">
+        <figure class="dev" data-dev="tv" style="--disp:860px">
+          <div class="dev-zoom"><div class="dev-frame"><div class="dev-screen">
+            <div class="app tv" data-theme-poster="p13">
+              <div class="hero" style="position:absolute;inset:0"><div class="hero-img" data-backdrop="p13"></div>
+                <div class="hero-shade" style="background:linear-gradient(to top, var(--md-surface) 0%, color-mix(in srgb, var(--md-surface) 75%, transparent) 38%, transparent 70%), linear-gradient(to right, color-mix(in srgb, var(--md-surface) 85%, transparent), transparent 70%)"></div></div>
+              <nav class="tv-nav open">
+                <span class="flex aic g12" style="padding:0 14px 18px"><span data-shape="cookie4" style="width:28px;height:28px;background:var(--md-primary);display:block"></span><b style="font:800 18px/1 'Roboto Flex',sans-serif;font-stretch:120%">myBox</b></span>
+                <span class="tn-item"><i class="ms">search</i>搜索</span>
+                <span class="tn-item focus"><i class="ms fill">home</i>首页</span>
+                <span class="tn-item"><i class="ms">live_tv</i>直播</span>
+                <span class="tn-item"><i class="ms">video_library</i>媒体库</span>
+                <span class="tn-item"><i class="ms">history</i>历史与收藏</span>
+                <span class="tn-item" style="margin-top:auto"><i class="ms">settings</i>设置</span>
+              </nav>
+              <div class="abs" style="left:250px;right:0;top:300px;opacity:.55">
+                <div class="t-tm" style="margin-bottom:12px">继续观看</div>
+                <div class="flex g16"><div class="poster land" data-backdrop="p13" style="width:208px"></div><div class="poster land" data-backdrop="p4" style="width:208px"></div><div class="poster land" data-backdrop="p15" style="width:208px"></div><div class="poster land" data-backdrop="p11" style="width:208px"></div></div>
+              </div>
+              <div class="abs col g8" style="left:250px;top:90px;width:420px;opacity:.55"><div class="t-film" style="font-size:44px;color:#fff">星际邮差</div><div class="t-bm" style="color:rgba(255,255,255,.8)">宇宙最后一位邮差，要把一封寄错了三百年的信送到。</div></div>
+              <div class="abs flex aic g16 t-bs" style="right:40px;bottom:24px;color:var(--md-on-surface-variant)"><span class="flex aic g6"><span class="tv-key">▶</span>回到内容</span><span class="flex aic g6"><span class="tv-key">返回</span>收起</span></div>
+            </div>
+          </div></div></div>
+          <figcaption><b>侧边导航抽屉</b>在内容最左一列再按左键时展开；展开时内容压暗，焦点停在当前页面对应的项上。</figcaption>
+        </figure>
+      </div>
+
+      <div class="notes">
+        <div><h5><i class="ms">center_focus_strong</i>焦点的视觉规则</h5>
+          <ul class="dots">
+            <li><b>三件套</b>：放大 1.08 倍、3 dp 白色描边、主色外发光。三者同时出现，不依赖颜色辨识，色弱用户与低端屏幕都能看清。</li>
+            <li><b>反色</b>：列表项、按钮、侧栏项获得焦点时改为「浅底深字」（onSurface 底色），这是电视上最醒目的状态。</li>
+            <li><b>不模糊也成立</b>：电视界面所有浮层默认用不透明着色层与渐变，模糊仅在用户手动开启且设备支持时生效。</li>
+            <li><b>安全区</b>：四周留出 48 × 27 dp（5%）的安全边距，所有可聚焦元素都在区内；背景图可以铺满。</li>
+            <li><b>焦点记忆</b>：每一行记住上次的焦点列；从详情返回首页，焦点回到进入时的那张卡片。</li>
+            <li><b>预加载</b>：焦点停留 300 ms 才加载背景大图并换主题色，快速长按方向键滚动时只移动焦点。</li>
+          </ul>
+          <h5 style="margin-top:24px"><i class="ms">route</i>焦点路径</h5>
+          <ul class="dots">
+            <li>首页：分类行（顶部）↕ Hero 按钮 ↕ 内容行；最左列按左键展开侧栏；在侧栏按右键回到内容。</li>
+            <li>详情：播放按钮为初始焦点；下键进入选集行，选集行下方是线路行；返回键回到首页原焦点。</li>
+            <li>播放：控件隐藏时，左右键直接快退快进，上键呼出线路与画质，下键呼出选集，确认键暂停并显示控件。</li>
+            <li>直播：上下键换台，左右键换线路，确认键呼出频道列表，菜单键打开切源与设置。</li>
+          </ul>
+        </div>
+        <div><h5><i class="ms">settings_remote</i>遥控器键位</h5>
+          <div class="keys">
+            <div><kbd>OK</kbd><span><b>确认</b>打开、播放、暂停；直播中呼出频道列表</span></div>
+            <div><kbd>菜单</kbd><span><b>切源与更多</b>任何页面都打开切源面板；播放中打开播放设置</span></div>
+            <div><kbd>返回</kbd><span><b>后退一级</b>首页连按两次退出；播放中先收起控件</span></div>
+            <div><kbd>◀ ▶</kbd><span><b>水平移动</b>播放中快退快进（步长 play_time_step），直播中换线路</span></div>
+            <div><kbd>▲ ▼</kbd><span><b>垂直移动</b>直播中换台，可在设置里反转方向</span></div>
+            <div><kbd>频道 ±</kbd><span><b>快速切换</b>首页在最近站点间切换；直播中换台；播放中切集</span></div>
+            <div><kbd>长按 OK</kbd><span><b>次级操作</b>卡片上收藏、删除记录、站点置顶</span></div>
+            <div><kbd>数字键</kbd><span><b>直接选台</b>直播中输入频道号，1.5 秒后跳转</span></div>
+          </div>
+          <div class="callout"><i class="ms">mic</i><div><b>语音与手机输入。</b>搜索页优先展示语音按钮；没有语音的遥控器，可以用手机扫码把搜索词推到电视（<a href="#s19">S19 远程管理</a>）。</div></div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,129 @@
+/* 屏幕专用补充样式（a 组：S01 S02 S05 S06 S07 S14） */
+
+/* 二维码 */
+.app .qr { display: block; width: 100%; height: auto; border-radius: 12px; }
+.qr-card { background: #fff; border-radius: 20px; padding: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+
+/* 启动加载步骤 */
+.load-steps { display: flex; flex-direction: column; gap: 2px; }
+.load-steps .ls { display: flex; align-items: center; gap: 12px; min-height: 40px; padding: 0 4px; font: 400 14px/20px var(--font-sans); color: var(--md-on-surface-variant); }
+.load-steps .ls .ms { font-size: 20px; width: 20px; }
+.load-steps .ls.done { color: var(--md-on-surface); }
+.load-steps .ls.done .ms { color: var(--md-primary); font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24; }
+.load-steps .ls.now { color: var(--md-on-surface); font-weight: 600; }
+.load-steps .ls.now .ms { color: var(--md-tertiary); }
+.load-steps .ls.wait { opacity: .55; }
+.load-steps .ls .ls-r { margin-left: auto; font: 500 12px/16px var(--font-sans); color: var(--md-on-surface-variant); font-variant-numeric: tabular-nums; }
+
+/* 原文 / 代码片段（内容本身就是代码，才用等宽） */
+.code-snip {
+  font: 400 12px/19px ui-monospace, "Cascadia Mono", Consolas, "Roboto Mono", monospace; white-space: pre; overflow: hidden;
+  background: var(--md-surface-container-lowest); color: var(--md-on-surface-variant); border-radius: 12px; padding: 10px 0;
+}
+.code-snip .ln { display: inline-block; width: 34px; padding-right: 10px; text-align: right; color: var(--md-outline); }
+.code-snip .bad { display: block; background: color-mix(in srgb, var(--md-error) 18%, transparent); color: var(--md-on-surface); box-shadow: inset 3px 0 0 var(--md-error); }
+.code-snip .k { color: var(--md-primary); } .code-snip .s { color: var(--md-tertiary); } .code-snip .c { color: var(--md-outline); }
+
+/* 扫码取景框 */
+.viewfinder { position: relative; border-radius: 28px; overflow: hidden; background: #000; }
+.viewfinder .vf-cam { position: absolute; inset: 0; background: center/cover; filter: blur(1px) brightness(.55) saturate(.8); }
+.viewfinder .vf-box { position: absolute; left: 50%; top: 50%; width: 200px; height: 200px; transform: translate(-50%, -50%); border-radius: 28px; box-shadow: 0 0 0 999px rgba(0,0,0,.45); }
+.viewfinder .vf-box::before { content: ""; position: absolute; inset: 0; border-radius: 28px; border: 3px solid var(--md-primary); clip-path: polygon(0 0, 30% 0, 30% 4%, 4% 4%, 4% 30%, 0 30%, 0 70%, 4% 70%, 4% 96%, 30% 96%, 30% 100%, 70% 100%, 70% 96%, 96% 96%, 96% 70%, 100% 70%, 100% 30%, 96% 30%, 96% 4%, 70% 4%, 70% 0, 100% 0, 100% 100%, 0 100%); }
+.viewfinder .vf-line { position: absolute; left: 12%; right: 12%; top: 55%; height: 2px; background: linear-gradient(90deg, transparent, var(--md-primary), transparent); box-shadow: 0 0 12px var(--md-primary); }
+
+/* 屏幕键盘（电视） */
+.osk { display: grid; gap: 6px; }
+.osk .k {
+  height: 38px; border-radius: 10px; display: grid; place-items: center; background: var(--md-surface-container-high);
+  color: var(--md-on-surface); font: 500 15px/1 var(--font-sans);
+}
+.osk .k.w2 { grid-column: span 2; } .osk .k.w3 { grid-column: span 3; }
+.osk .k.fn { background: var(--md-surface-container-highest); color: var(--md-on-surface-variant); font-size: 13px; }
+.osk .k.ok { background: var(--md-primary); color: var(--md-on-primary); }
+.osk .k.focus { background: var(--md-on-surface); color: var(--md-surface); transform: scale(1.12); box-shadow: 0 0 0 2px #fff, 0 8px 20px rgba(0,0,0,.5); position: relative; z-index: 2; font-weight: 700; }
+
+/* 面包屑（文件夹型分类） */
+.crumbs { display: flex; align-items: center; gap: 2px; font: 500 13px/18px var(--font-sans); color: var(--md-on-surface-variant); white-space: nowrap; overflow: hidden; }
+.crumbs .ms { font-size: 18px; opacity: .6; }
+.crumbs b { color: var(--md-on-surface); font-weight: 600; }
+.crumbs span.cr { padding: 4px 8px; border-radius: 8px; }
+.crumbs span.cr.on { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+
+/* 应用内表格（平板站点管理） */
+.atbl { width: 100%; border-collapse: collapse; font: 400 13px/18px var(--font-sans); }
+.atbl th { text-align: left; font: 500 12px/16px var(--font-sans); color: var(--md-on-surface-variant); padding: 8px 10px; border-bottom: 1px solid var(--md-outline-variant); white-space: nowrap; }
+.atbl td { padding: 0 10px; height: 46px; border-bottom: 1px solid color-mix(in srgb, var(--md-outline-variant) 50%, transparent); white-space: nowrap; }
+.atbl tr.sel td { background: color-mix(in srgb, var(--md-primary) 10%, transparent); }
+.atbl tr.off td { opacity: .5; }
+.atbl .drag { color: var(--md-outline); }
+
+/* 搜索结果流式进度 */
+.stream-prog { display: flex; gap: 2px; height: 6px; border-radius: 3px; overflow: hidden; }
+.stream-prog i { flex: 1; background: var(--md-surface-container-highest); }
+.stream-prog i.ok { background: var(--md-primary); }
+.stream-prog i.empty { background: color-mix(in srgb, var(--md-primary) 40%, var(--md-surface-container-highest)); }
+.stream-prog i.bad { background: var(--md-error); }
+
+/* 搜索结果条（列表视图） */
+.sr { display: flex; gap: 12px; padding: 10px 16px; align-items: stretch; }
+.sr .poster { width: 72px; border-radius: 10px; }
+.sr .sr-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.sr .sr-t { font: 600 15px/20px var(--font-sans); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sr .sr-t em { font-style: normal; color: var(--md-primary); }
+.sr .sr-srcs { display: flex; gap: 4px; flex-wrap: wrap; margin-top: auto; }
+.src-chip { display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 0 8px 0 3px; border-radius: 11px; background: var(--md-surface-container-high); font: 500 11px/1 var(--font-sans); color: var(--md-on-surface); white-space: nowrap; }
+.src-chip .si { width: 16px; height: 16px; display: grid; place-items: center; font: 700 9px/1 var(--font-sans); background: var(--md-primary); color: var(--md-on-primary); border-radius: 5px; }
+.src-chip.dim { opacity: .6; }
+
+/* 统计数字 */
+.stat { display: flex; flex-direction: column; gap: 2px; }
+.stat b { font: 700 22px/26px "Roboto Flex", var(--font-sans); font-variant-numeric: tabular-nums; }
+.stat span { font: 400 12px/16px var(--font-sans); color: var(--md-on-surface-variant); }
+
+/* 分区标题（日期分组） */
+.date-head { display: flex; align-items: center; gap: 8px; padding: 14px 16px 8px; font: 600 13px/18px var(--font-sans); color: var(--md-on-surface-variant); }
+.date-head::after { content: ""; flex: 1; height: 1px; background: var(--md-outline-variant); opacity: .6; }
+
+/* 选择态海报 */
+.poster .sel-mark { position: absolute; right: 6px; top: 6px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: rgba(0,0,0,.45); box-shadow: inset 0 0 0 2px #fff; color: #fff; }
+.poster .sel-mark.on { background: var(--md-primary); box-shadow: none; color: var(--md-on-primary); }
+.poster .sel-mark .ms { font-size: 16px; }
+.poster .upd { position: absolute; right: 6px; top: 6px; padding: 1px 6px; border-radius: 6px; background: var(--md-error); color: var(--md-on-error); font: 700 10px/16px var(--font-sans); }
+.poster.selected { box-shadow: 0 0 0 3px var(--md-primary); transform: scale(.94); }
+
+/* 文档的 .wrap（页面容器）与 app.css 的 .wrap（flex-wrap）同名：在应用界面里只保留换行语义 */
+.app .wrap { max-width: none; margin: 0; padding: 0; }
+.tv .load-steps .ls { min-height: 34px; }
+.loading-ind.sm { width: 24px; height: 24px; }
+.loading-ind.sm svg { width: 20px; height: 20px; }
+
+/* 形状字标（仓库 / 站点 / 服务器的首字图标；形状由 data-shape 决定） */
+.sico { display: grid; place-items: center; flex: none; width: 40px; height: 40px; font: 700 15px/1 var(--font-sans); background: var(--md-surface-container-highest); color: var(--md-on-surface); }
+.sico.pri { background: var(--md-primary); color: var(--md-on-primary); }
+.sico.ter { background: var(--md-tertiary); color: var(--md-on-tertiary); }
+.sico.sec { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+.sico.jf { background: #3b2f70; color: #dcd4ff; }
+.sico.emby { background: #2d5e2a; color: #d4ffcc; }
+.sico.dav { background: #2e4f57; color: #c9f2fb; }
+.sico.live { background: #6e2430; color: #ffd6dc; }
+
+/* 开关型图标按钮（参与搜索 / 显示） */
+.tog { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; color: var(--md-on-surface-variant); flex: none; }
+.tog .ms { font-size: 20px; }
+.tog.on { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+.tog.on .ms { font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24; }
+.tog.na { opacity: .35; }
+
+/* 站点没给封面时的占位海报 */
+.poster.np { display: grid; place-items: center; background: linear-gradient(160deg, var(--md-surface-container-highest), var(--md-surface-container)); color: var(--md-on-surface-variant); }
+.poster.np .ms { font-size: 28px; opacity: .6; }
+
+/* 热搜榜 */
+.rank { display: flex; align-items: center; gap: 14px; height: 44px; padding: 0 16px; font: 400 15px/20px var(--font-sans); }
+.rank .rk { width: 20px; text-align: center; font: 800 16px/1 "Roboto Flex", var(--font-sans); color: var(--md-on-surface-variant); font-variant-numeric: tabular-nums; }
+.rank .rk.top { color: var(--md-primary); }
+.rank .rt { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rank .ms { font-size: 18px; }
+.tv .osk .k { height: 42px; font-size: 16px; }
+/* 行内文字上的标注针脚：右侧留白，避免盖住最后一个字 */
+.pin-pad { padding-right: 30px; }

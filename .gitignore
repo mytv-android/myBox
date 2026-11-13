@@ -1,0 +1,8 @@
+# 调研用的第三方源码与下载缓存，体积大且含他人代码，不入库
+.emby-research/
+.tvbox-research/
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
