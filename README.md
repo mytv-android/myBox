@@ -4,7 +4,7 @@
 
 本仓库目前包含：
 
-- **UI 设计稿（征求意见稿 v0.1）**：<https://mytv-android.github.io/myBox/>
+- **UI 设计稿（征求意见稿 v0.2）**：<https://mytv-android.github.io/myBox/>
   覆盖手机、平板、电视、折叠屏与双屏设备，基于 Material 3 Expressive、Haze 模糊材质与封面动态取色。
 - **《TVBox 协议与实现规范》**：[`TVBox协议与实现规范.md`](TVBox协议与实现规范.md)，设计稿中的每个界面元素都能在这里找到对应字段。
 
@@ -21,7 +21,7 @@ src/index.src.html    设计稿主模板
 src/sections/         各章节与界面（S01–S20）
 assets/css/           app.css 为 M3 组件复刻，doc.css 为文档外壳
 assets/js/            posters.js 程序化海报，shapes.js 形状与形变，main.js 取色与交互
-assets/vendor/mcu.js  material-color-utilities 0.3.0（取色算法）
+assets/vendor/mcu.js  material-color-utilities 0.4.0（配合 main.js 里移植的 kmpalette，复现 MaterialKolor 的取色）
 assets/fonts/         按页面用字生成的自托管字体子集
 tools/build.py        拼装 index.html，--fonts 时重新生成字体子集
 ```

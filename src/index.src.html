@@ -18,7 +18,7 @@
 <nav class="toc" aria-label="目录">
   <a class="brand" href="#top">
     <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" style="fill:var(--md-primary)" clip-path="url(#sh-cookie4)"/><path d="M41 33 69 50 41 67z" style="fill:var(--md-on-primary);stroke:var(--md-on-primary)" stroke-width="8" stroke-linejoin="round"/></svg>
-    <span><b>myBox</b><small>UI 设计稿 v0.1 征求意见</small></span>
+    <span><b>myBox</b><small>UI 设计稿 v0.2 征求意见</small></span>
   </a>
   <button class="icon-btn toc-close" data-toc-toggle aria-label="关闭目录"><i class="ms">close</i></button>
   <h6>开场</h6>
@@ -73,7 +73,7 @@
           <h1>myBox</h1>
         </div>
         <p class="lede">一个兼容 <strong>TVBox 配置协议</strong>的影视聚合播放器，同时接入 <strong>Emby / Jellyfin</strong> 与 WebDAV 网盘。这份设计稿画出了它在<strong>手机、平板、电视、折叠屏和双屏设备</strong>上的每一个界面。</p>
-        <p class="stamp">征求意见稿 v0.1，2026 年 11 月 13 日。依据《TVBox 协议与实现规范》v1.3，界面元素均可在规范中找到对应字段。</p>
+        <p class="stamp">征求意见稿 v0.2，2026 年 11 月 13 日。依据《TVBox 协议与实现规范》v1.3，界面元素均可在规范中找到对应字段。</p>
         <div class="ctas">
           <a class="dbtn" href="#s03"><i class="ms">play_arrow</i>从首页开始看</a>
           <a class="dbtn tonal" href="https://github.com/mytv-android/myBox/issues/new?title=%5B%E6%95%B4%E4%BD%93%5D%20&body=%E8%AE%BE%E5%A4%87%EF%BC%9A%0A%E7%95%8C%E9%9D%A2%E7%BC%96%E5%8F%B7%EF%BC%9A%0A%E6%84%8F%E8%A7%81%EF%BC%9A%0A" target="_blank" rel="noopener"><i class="ms">rate_review</i>提意见</a>
@@ -100,6 +100,7 @@
               <div class="hero-shade" style="background:linear-gradient(to top, var(--md-surface) 0%, color-mix(in srgb, var(--md-surface) 60%, transparent) 26%, transparent 55%), linear-gradient(to right, color-mix(in srgb, var(--md-surface) 92%, transparent) 0%, color-mix(in srgb, var(--md-surface) 50%, transparent) 42%, transparent 70%)"></div>
             </div>
             <nav class="tv-nav">
+              <span class="tn-src"><span class="tn-src-av"><span class="tn-src-ic" data-shape="cookie4">光</span><i class="tn-src-dot"></i></span></span><i class="tn-div"></i>
               <span class="tn-item"><i class="ms">search</i></span>
               <span class="tn-item on"><i class="ms fill">home</i></span>
               <span class="tn-item"><i class="ms">live_tv</i></span>
@@ -107,10 +108,7 @@
               <span class="tn-item"><i class="ms">history</i></span>
               <span class="tn-item" style="margin-top:auto"><i class="ms">settings</i></span>
             </nav>
-            <div class="abs flex aic g8" style="top:24px;right:32px;z-index:5">
-              <span class="source-pill haze-ultrathin" style="height:40px"><span class="sp-icon" style="width:32px;height:32px">光</span><span class="sp-text"><span class="sp-cfg">星河仓 线路一</span><span class="sp-site">光年影视</span></span><i class="ms">unfold_more</i></span>
-              <span class="t-ts c-var" style="margin-left:8px">21:36</span>
-            </div>
+            <div class="abs" style="top:26px;right:40px;z-index:5"><span class="tv-clock">21:36</span></div>
             <div class="abs col g12" style="left:96px;top:96px;width:440px;z-index:5">
               <div class="t-film" style="font-size:52px;line-height:1.1;color:#fff" data-follow-title>长夜将尽</div>
               <div class="meta-line" data-follow-meta></div>
@@ -144,7 +142,7 @@
       <div class="grid-2">
         <div class="panel"><h5>海报是主角，界面是幕布</h5><p class="hint" style="margin:0">默认深色，像放映厅一样把光留给画面。每一屏的主题色从当前封面中提取，按钮、进度条和容器都染上影片自己的颜色；没有封面的页面才使用品牌色「丝绒红」。</p></div>
         <div class="panel"><h5>切源永远一步之遥</h5><p class="hint" style="margin:0">浏览类页面的左上角始终是「源胶囊」：显示当前仓库和站点，点一下打开切源面板，左右滑动在最近用过的站点间切换。播放失败时，界面直接给出同名影片在其他站点的结果。</p></div>
-        <div class="panel"><h5>玻璃只给浮在内容上的层</h5><p class="hint" style="margin:0">顶栏、底栏、播放控件、面板这些悬浮层用 Haze 模糊材质，让下层的封面色透上来；内容本身保持不透明。没有实时模糊能力的设备（Android 12 以下、低端电视盒）自动换成不透明着色层，版式不变。</p></div>
+        <div class="panel"><h5>玻璃只给浮在内容上的层</h5><p class="hint" style="margin:0">顶栏、底栏、播放控件、面板这些悬浮层用 Haze 模糊材质，让下层的封面色透上来；内容本身保持不透明。没有实时模糊能力的设备（Android 6.0–11、低端电视盒）自动换成不透明着色层，版式不变。</p></div>
         <div class="panel"><h5>一套组件，五种姿态</h5><p class="hint" style="margin:0">按窗口宽度而不是设备类型来排版：紧凑宽度用底部导航，中等宽度换成侧导航轨和双栏，电视使用以焦点为中心的 10 英尺界面。折叠屏的半开与双屏的铰链都被当成布局的分界线。</p></div>
       </div>
 
@@ -167,7 +165,7 @@
       <div class="chapter-head"><span class="num">2</span><h2>设计系统</h2><p>以 Material 3 Expressive 为骨架：更大胆的形状与弹簧动效、强调型字号、按钮组与悬浮工具栏。在此之上加两层 myBox 自己的东西：Haze 模糊材质，以及从封面中提取的动态配色。</p></div>
 
       <h4 class="sub" id="color">2.1 封面取色</h4>
-      <div class="prose"><p>每张封面都会经过下面四步得到一个种子色，再由种子色生成整套 Material 配色角色。这一节的取色是<strong>在你的浏览器里实时计算的</strong>，使用的正是 Android 端会用的同一套算法（material-color-utilities 的 Celebi 量化与 Score 评分）。</p></div>
+      <div class="prose"><p>取色统一交给 <a href="https://github.com/jordond/MaterialKolor" target="_blank" rel="noopener">MaterialKolor</a> 6.0：封面经过下面四步得到一个种子色，再由种子色生成整套 Material 配色角色。这一节的取色是<strong>在你的浏览器里实时计算的</strong>，逐步照搬 MaterialKolor 的流程——kmpalette 量化、material-color-utilities 的 Score 评分、2025 版配色规范——所以这里看到的颜色就是 App 里会出现的颜色。</p></div>
       <div class="panel" id="color-lab" style="margin-top:20px">
         <div class="lab">
           <div class="lab-src">
@@ -175,12 +173,12 @@
             <div class="lab-thumbs"></div>
           </div>
           <div class="pipe">
-            <div class="pipe-step"><span class="n">1</span><div><h6>缩小封面</h6><p>Coil 解码封面时额外请求一张 48 × 72 的缩略图，只为取色用，不影响显示清晰度。</p><canvas class="pix"></canvas></div></div>
-            <div class="pipe-step"><span class="n">2</span><div><h6>Celebi 量化</h6><p>把 3456 个像素聚成最多 128 种颜色，本张封面得到 <b class="qcount">0</b> 种。下面按像素占比画出前 14 种。</p><div class="qbar"></div></div></div>
-            <div class="pipe-step"><span class="n">3</span><div><h6>Score 评分</h6><p>按色相分布与彩度打分，过滤掉灰色和占比过低的颜色；第一名成为种子色。</p><div class="seeds"></div></div></div>
-            <div class="pipe-step"><span class="n">4</span><div><h6>生成配色方案</h6><p>内容页用 <b>Content</b> 方案，主色贴近海报原色；全局界面用更安静的 <b>Tonal Spot</b>。切换下面的选项看看差别。</p>
+            <div class="pipe-step"><span class="n">1</span><div><h6>缩小封面</h6><p>kmpalette 先把封面缩到面积不超过 112 × 112，本张为 <b class="qsize">92 × 138</b>。取色在后台线程完成，首帧先用品牌色，算完再用弹簧动画过渡。</p><canvas class="pix"></canvas></div></div>
+            <div class="pipe-step"><span class="n">2</span><div><h6>kmpalette 量化</h6><p>与 AndroidX Palette 相同的中位切分：先滤掉近黑、近白和肤色附近的低饱和颜色，再切成最多 16 个色样。本张得到 <b class="qcount">0</b> 个，下面按像素占比排列。</p><div class="qbar"></div></div></div>
+            <div class="pipe-step"><span class="n">3</span><div><h6>Score 评分</h6><p>MaterialKolor 把色样交给 material-color-utilities 的 Score：按色相分布与彩度打分，过滤掉灰色和占比过低的颜色，第一名成为种子色。</p><div class="seeds"></div></div></div>
+            <div class="pipe-step"><span class="n">4</span><div><h6>生成配色方案</h6><p>按 2025 版规范（<code>SPEC_2025</code>）生成。内容页用 <b>Content</b>，主色贴近海报原色；全局界面用更安静的 <b>TonalSpot</b>。按钮名就是 <code>PaletteStyle</code> 的取值。</p>
               <div class="ctrl-row" style="margin-bottom:10px">
-                <span class="dseg"><button data-variant="content" aria-pressed="true">Content</button><button data-variant="tonal">Tonal Spot</button><button data-variant="fidelity">Fidelity</button><button data-variant="vibrant">Vibrant</button><button data-variant="expressive">Expressive</button></span>
+                <span class="dseg"><button data-variant="content" aria-pressed="true">Content</button><button data-variant="tonal">TonalSpot</button><button data-variant="fidelity">Fidelity</button><button data-variant="vibrant">Vibrant</button><button data-variant="expressive">Expressive</button></span>
               </div>
               <div class="ctrl-row" style="margin-bottom:14px">
                 <span class="dseg"><button data-labmode="dark" aria-pressed="true">深色</button><button data-labmode="light">浅色</button></span>
@@ -221,15 +219,16 @@
             <li><b>缓存。</b>种子色按 <code>vod_pic</code> 的 URL 做键，内存 LRU 128 条，并随观看历史一起落库，下次进入详情页无需等待解码。</li>
             <li><b>过渡。</b>种子色变化时整套颜色用低刚度弹簧（约 500 ms）插值过渡，不出现硬切。电视首页焦点快速移动时，等焦点停留 300 ms 后再换色，避免闪烁。</li>
             <li><b>可读性。</b>封面上的文字一律压在渐变遮罩上；配色只取 Material 角色，保证正文对比度不低于 4.5 : 1。设置里提供「高对比度」选项（对应 contrastLevel 1.0）。</li>
-            <li><b>失败兜底。</b>封面过灰（例如黑白片）时 Score 会退回品牌色；用户也可以在设置里关闭动态取色，固定使用品牌色或系统壁纸取色（Android 12+）。</li>
+            <li><b>失败兜底。</b>封面过灰（例如黑白片）时 Score 会退回品牌色；用户也可以在设置里关闭动态取色，固定使用品牌色。系统壁纸取色只在 Android 12 及以上提供，6.0–11 的设备不显示这个选项。</li>
           </ul>
         </div>
         <div><h5><i class="ms">code</i>落地建议</h5>
           <table class="map">
             <tr><th>环节</th><th>建议实现</th></tr>
-            <tr><td>图片解码</td><td>Coil 3 加载 <code>vod_pic</code>，取色走单独的 <code>size(48, 72)</code> 请求，开启 <code>allowHardware(false)</code> 才能读像素</td></tr>
-            <tr><td>量化与评分</td><td>MaterialKolor 或 <code>material-color-utilities</code> 的 <code>QuantizerCelebi</code> + <code>Score</code></td></tr>
-            <tr><td>生成方案</td><td><code>DynamicMaterialTheme(seedColor, style = PaletteStyle.Content, animate = true)</code></td></tr>
+            <tr><td>依赖</td><td><code>com.materialkolor:material-kolor-material3</code> 与 <code>material-kolor-palette</code> 6.0.0（库的 minSdk 为 21，满足 myBox 的 minSdk 23）</td></tr>
+            <tr><td>图片解码</td><td>Coil 3 加载 <code>vod_pic</code>，取色用的那次请求设 <code>allowHardware(false)</code>，否则读不到像素</td></tr>
+            <tr><td>量化与评分</td><td><code>rememberThemeColor(painter 或 loader + input, fallback = 品牌色)</code>：内部是 kmpalette 量化 + <code>Score</code>，在 <code>Dispatchers.Default</code> 计算并按输入缓存</td></tr>
+            <tr><td>生成方案</td><td><code>DynamicMaterialExpressiveTheme(seedColor, isDark, style = PaletteStyle.Content, contrastLevel, animate = true)</code>，<code>specVersion</code> 保持默认的 <code>SPEC_2025</code></td></tr>
             <tr><td>作用范围</td><td>详情、播放器各自包一层主题；导航栏、源胶囊等全局元素用页面主题</td></tr>
           </table>
         </div>
@@ -267,7 +266,8 @@
         </div>
         <div><h5><i class="ms">devices</i>性能与退化</h5>
           <ul class="dots">
-            <li><b>实时模糊只在 Android 12（API 31）以上启用</b>，依赖 RenderEffect。更低版本由 Haze 自动退化为着色层；本稿的「模糊」开关模拟的就是这种状态，所有界面在关掉模糊后仍然成立。</li>
+            <li><b>实时模糊只在 Android 12（API 31）以上启用</b>，依赖 RenderEffect。myBox 的 minSdk 是 23，Android 6.0–11 上 Haze 默认不模糊、只画一层半透明遮罩；我们把每种材质的 <code>fallbackColorEffect</code> 设成对应的着色层，效果就是本稿「模糊」开关关掉时的样子，所有界面在这种状态下仍然成立。</li>
+            <li><b>旧版本的 RenderScript 模糊不开。</b>Haze 可以在 API 23–30 上用 RenderScript 做模糊，但官方标注为实验性：比 Android 12 慢，在后台线程计算并会丢帧，模糊会跟不上内容变化。滚动列表上的顶栏和播放控件都不适合，见附录 Q11。</li>
             <li><b>电视默认关闭模糊。</b>大量电视盒子停留在 Android 9 到 11，且 GPU 弱；电视界面从一开始就按「不透明着色层 + 渐变」设计，模糊只是锦上添花，可在设置中手动开启。</li>
             <li><b>同一屏最多三个模糊区域</b>，并且模糊源（<code>hazeSource</code>）只挂在 Hero 图和列表容器上，不挂在每张卡片上。</li>
             <li><b>系统「减少透明度」</b>或省电模式开启时，强制使用退化样式。</li>
@@ -442,7 +442,7 @@
 
   <footer class="end">
     <div class="wrap">
-      <div>myBox UI 设计稿 v0.1。片名、海报、人物与站点名称均为虚构，海报由页面脚本实时绘制。</div>
+      <div>myBox UI 设计稿 v0.2。片名、海报、人物与站点名称均为虚构，海报由页面脚本实时绘制。</div>
       <div><a href="https://github.com/mytv-android/myBox" target="_blank" rel="noopener">github.com/mytv-android/myBox</a></div>
     </div>
   </footer>

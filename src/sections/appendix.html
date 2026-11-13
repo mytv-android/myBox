@@ -27,11 +27,19 @@
       <div class="grid-2">
         <div class="panel"><h5>界面层</h5>
           <ul class="dots">
-            <li><b>Kotlin + Jetpack Compose</b>，一套代码覆盖手机、平板、折叠屏与双屏；电视用 <code>androidx.tv:tv-material</code> 的焦点组件，共享业务层。</li>
+            <li><b>Kotlin + Jetpack Compose，minSdk 23</b>（Android 6.0），一套代码覆盖手机、平板、折叠屏、双屏和电视。</li>
+            <li><b>电视不使用 <code>androidx.tv</code></b>（tv-material、tv-foundation 都不引入），和手机共用同一套 Material 3 组件，焦点体系在 Compose foundation 上自建：
+              <ul>
+                <li><code>onFocusChanged</code> 驱动「放大 + 白描边 + 主色光晕」</li>
+                <li><code>focusRestorer</code> 让每一行记住上次的焦点</li>
+                <li><code>focusProperties</code> 指定跨区域的方向键跳转，例如最左列 → 侧栏</li>
+                <li><code>onPreviewKeyEvent</code> 统一处理菜单键、频道键和数字键</li>
+                <li>列表用普通的 <code>LazyRow</code> / <code>LazyColumn</code>，通过 <code>BringIntoViewSpec</code> 让焦点项停在固定位置</li>
+              </ul></li>
             <li><b>Material 3 Expressive</b>：<code>MaterialExpressiveTheme</code>、<code>MotionScheme.expressive()</code>、<code>MaterialShapes</code>、<code>ButtonGroup</code>、<code>SplitButtonLayout</code>、<code>FloatingToolbar</code>、<code>LoadingIndicator</code>、<code>LinearWavyProgressIndicator</code>。</li>
             <li><b>自适应</b>：<code>material3-adaptive</code> 的 <code>NavigationSuiteScaffold</code>、<code>ListDetailPaneScaffold</code>；姿态用 <code>androidx.window</code> 的 <code>FoldingFeature</code>。</li>
-            <li><b>模糊</b>：<code>dev.chrisbanes.haze</code>（haze + haze-materials），按 2.2 节的材质表使用。</li>
-            <li><b>取色</b>：Coil 3 解码 + MaterialKolor 的 <code>DynamicMaterialTheme</code>。</li>
+            <li><b>模糊</b>：<code>dev.chrisbanes.haze</code>（haze + haze-materials），按 2.2 节的材质表使用；API 23–30 用 <code>fallbackColorEffect</code> 着色层。</li>
+            <li><b>取色</b>：Coil 3 解码 + MaterialKolor 6.0：<code>material-kolor-palette</code> 的 <code>rememberThemeColor</code> 取种子色，<code>material-kolor-material3</code> 的 <code>DynamicMaterialExpressiveTheme</code>（<code>PaletteStyle.Content</code>，默认 <code>SPEC_2025</code>）生成主题。</li>
           </ul>
         </div>
         <div class="panel"><h5>协议与播放层</h5>
@@ -45,11 +53,24 @@
         </div>
       </div>
 
+      <h4 class="sub">minSdk 23 的取舍</h4>
+      <div class="prose"><p>Android 6.0 是下限，大量电视盒子也停在 7–9。下面这些能力在旧版本上没有，界面按右列处理；设计稿里的每个界面都按「最低版本也能用」画，高版本只是更好看。</p></div>
+      <div class="table-scroll"><table class="map">
+        <tr><th>能力</th><th>需要的版本</th><th>低版本上的做法</th></tr>
+        <tr><td>实时模糊（RenderEffect）</td><td>Android 12（API 31）</td><td>Haze 的 <code>fallbackColorEffect</code> 着色层，即本稿「模糊」开关关掉时的样子</td></tr>
+        <tr><td>系统壁纸取色</td><td>Android 12（API 31）</td><td>设置里不显示这个来源；封面取色由 MaterialKolor 计算，任何版本都可用</td></tr>
+        <tr><td>画中画</td><td>Android 8.0（API 26）</td><td>播放器不显示画中画按钮，离开页面时暂停</td></tr>
+        <tr><td>可变字体轴（Roboto Flex 的字宽、字重）</td><td>Android 8.0（API 26）</td><td>改用固定字重，标题少了字宽变化，层级不变</td></tr>
+        <tr><td>预测性返回动画</td><td>Android 14（API 34）</td><td>普通返回，面板与页面仍有各自的退出动画</td></tr>
+        <tr><td>Let's Encrypt 证书（ISRG Root X1）</td><td>Android 7.1.1 起系统内置</td><td>很多配置地址用这类证书。OkHttp 用自定义 TrustManager 合并系统根证书与内置的 ISRG Root X1，否则 6.0–7.1 设备会加载失败</td></tr>
+        <tr><td>系统 WebView 版本</td><td>解析与嗅探依赖较新的 WebView</td><td>启动时检查 WebView 版本，过旧时在 <a href="#s11">S11</a> 提示并优先用 JSON 解析</td></tr>
+      </table></div>
+
       <h4 class="sub">待讨论问题</h4>
       <div class="prose"><p>下面这些是设计时拿不准、希望大家给意见的地方。每条都附上了当前稿子的做法。</p></div>
       <div class="table-scroll"><table class="map">
         <tr><th>编号</th><th>问题</th><th>本稿的做法</th></tr>
-        <tr><td>Q1</td><td>封面取色应该取「面积最大」的颜色，还是「最鲜艳」的颜色？例如《长夜将尽》取到的是夜空的藏青，而不是画面中心的橙色太阳。</td><td>沿用 Score 算法（偏向面积 + 彩度），可在 2.1 节逐张试。备选：取 Score 前两名中彩度更高的一个。</td></tr>
+        <tr><td>Q1</td><td>封面取色应该取「面积最大」的颜色，还是「最鲜艳」的颜色？例如《长夜将尽》取到的是夜空的藏青 #101030，画面中心的橙色太阳只排第四。</td><td>用 MaterialKolor 默认的 <code>rememberThemeColor</code>（kmpalette 量化 + Score，兼顾面积与彩度），可在 2.1 节逐张试。备选：用 <code>rememberThemeColors(desired = 4)</code> 取前几名，再挑彩度最高的一个。</td></tr>
         <tr><td>Q2</td><td>默认深色，还是跟随系统？</td><td>默认深色，设置里可改为跟随系统或浅色。</td></tr>
         <tr><td>Q3</td><td>手机底部导航五项是否太多？「媒体库」能否并入切源面板，只保留四项？</td><td>保留五项，因为 Emby / Jellyfin 用户的使用路径与 TVBox 站点差别较大。</td></tr>
         <tr><td>Q4</td><td>在源胶囊上左右滑动切换站点，会不会和 Hero 轮播的横滑冲突、造成误触？</td><td>只在胶囊本身的区域响应，并在切换后给 4 秒撤销。</td></tr>
@@ -59,10 +80,21 @@
         <tr><td>Q8</td><td>播放失败时自动换到其他站点的同名影片，是否默认开启？</td><td>默认只提示，不自动切换；设置里可以打开自动换源。</td></tr>
         <tr><td>Q9</td><td>片名使用宋体 Heavy，在低分辨率电视或小屏手机上是否够清楚？</td><td>片名字号不小于 20 dp；小于这个尺寸时改用黑体粗体。</td></tr>
         <tr><td>Q10</td><td>是否需要「儿童模式」或「隐藏站点需要密码」？</td><td>本稿未设计，若需要可放在设置的「数据」分组。</td></tr>
+        <tr><td>Q11</td><td>Android 6.0–11 上是否打开 Haze 的实验性 RenderScript 模糊？</td><td>不打开，统一用着色层。若希望旧手机也有玻璃质感，可以只给不滚动的面板（切源面板、对话框）打开。</td></tr>
+        <tr><td>Q12</td><td>电视的切源入口放在侧栏最上面，是否够好找？</td><td>侧栏顶部的源头像 + 全局菜单键，首次进入首页提示一次菜单键；右上角只留时钟。备选：把源头像放进顶部分类行的最左边。</td></tr>
       </table></div>
       <div class="callout"><i class="ms">rate_review</i><div><b>如何提意见。</b>每个界面标题旁都有「对这一屏提意见」，会在 GitHub 上新建一条带界面编号的 Issue。也可以直接在 Issue 里写「Q3 同意」这样的简短回复。</div></div>
 
       <h4 class="sub">版本记录</h4>
-      <ul class="dots"><li><b>v0.1，2026-11-13</b>：首个征求意见稿。设计系统、五种设备形态、20 个界面、电视交互规范。</li></ul>
+      <ul class="dots">
+        <li><b>v0.2，2026-11-13</b>：按第一轮意见修改。
+          <ul>
+            <li>电视切源入口从首页右上角的胶囊移到侧栏最上面，右上角改为时钟（<a href="#s03">S03</a>、<a href="#s06">S06</a>、<a href="#tv">第 5 章</a>）。</li>
+            <li>不使用 androidx.tv 组件，电视焦点体系自建。</li>
+            <li>minSdk 定为 23，补充低版本的降级方案。</li>
+            <li>取色改为 MaterialKolor 6.0，<a href="#color">2.1 节</a>的演示按同一流程重算。</li>
+          </ul></li>
+        <li><b>v0.1，2026-11-13</b>：首个征求意见稿。设计系统、五种设备形态、20 个界面、电视交互规范。</li>
+      </ul>
     </div>
   </section>

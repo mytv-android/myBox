@@ -208,7 +208,7 @@
             <li><b>画面比例</b>：这里是默认值，播放中改的比例只对当前影片生效。</li>
             <li><b>出错时</b>：自动换源打开后，线路失败会按 <a href="#s09">S09</a> 的顺序试下一个同名片源，并用一条提示告诉用户换到了哪里。</li>
             <li><b>当前配置</b>：放在设置首页最上面，点「切换」打开 <a href="#s04">S04</a> 切源面板的配置页。</li>
-            <li><b>主题色来源</b>：三种选项本身就是色板预览；系统取色只在 Android 12 及以上出现。</li>
+            <li><b>主题色来源</b>：三种选项本身就是色板预览；系统取色只在 Android 12 及以上出现，Android 6.0–11 上不显示这一项。</li>
             <li><b>深浅色</b>：跟随系统、浅色、深色。上面的平板展示的就是浅色模式。</li>
             <li><b>模糊材质</b>：关闭后所有 Haze 表面换成不透明的着色层，和低端设备的自动降级效果一致。</li>
             <li><b>预览</b>：字号、偏移、弹幕设置都实时反映在这张预览图上。</li>
@@ -235,7 +235,7 @@
               <tr><td>搜索</td><td><code>search_view</code>（0 列表 / 1 缩略图）、<code>fast_search_mode</code>、<code>checked_sources_for_search</code></td></tr>
               <tr><td>数据</td><td><code>history_num</code>；备份内容对应 <code>tvbox.v3.db</code> 的 <code>cache</code>、<code>vodRecord</code>、<code>vodCollect</code> 三张表（§8.9）</td></tr>
               <tr><td>关于与调试</td><td><code>debug_open</code>、<code>internal_log_enabled</code></td></tr>
-              <tr><td>外观、自动换源</td><td>规范没有对应键，属于 myBox 的本地设置；首页壁纸取配置的 <code>wallpaper</code>（§3.7）</td></tr>
+              <tr><td>外观、自动换源</td><td>规范没有对应键，属于 myBox 的本地设置；首页壁纸取配置的 <code>wallpaper</code>（§3.7）。「取色风格」直接对应 MaterialKolor 的 <code>PaletteStyle</code>：忠于封面 <code>Content</code>、柔和 <code>TonalSpot</code>、鲜艳 <code>Vibrant</code>、表现力 <code>Expressive</code></td></tr>
             </table></div>
             <ul class="dots" style="margin-top:16px">
               <li><b>立即生效</b>：除了「播放器」「解码」「渲染方式」要在下一次起播时生效，其余设置改完即时生效，不需要保存按钮。</li>
