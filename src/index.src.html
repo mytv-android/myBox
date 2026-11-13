@@ -18,7 +18,7 @@
 <nav class="toc" aria-label="目录">
   <a class="brand" href="#top">
     <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" style="fill:var(--md-primary)" clip-path="url(#sh-cookie4)"/><path d="M41 33 69 50 41 67z" style="fill:var(--md-on-primary);stroke:var(--md-on-primary)" stroke-width="8" stroke-linejoin="round"/></svg>
-    <span><b>myBox</b><small>UI 设计稿 v0.2 征求意见</small></span>
+    <span><b>myBox</b><small>UI 设计稿 v0.3 征求意见</small></span>
   </a>
   <button class="icon-btn toc-close" data-toc-toggle aria-label="关闭目录"><i class="ms">close</i></button>
   <h6>开场</h6>
@@ -47,7 +47,7 @@
   <a class="ti" href="#s13"><span class="code">S13</span>节目单与回看</a>
   <a class="ti" href="#s14"><span class="code">S14</span>我的：历史与收藏</a>
   <a class="ti" href="#s15"><span class="code">S15</span>Emby / Jellyfin</a>
-  <a class="ti" href="#s16"><span class="code">S16</span>网盘与本地文件</a>
+  <a class="ti" href="#s16"><span class="code">S16</span>NAS、网盘与本地文件</a>
   <a class="ti" href="#s17"><span class="code">S17</span>投屏与推送</a>
   <a class="ti" href="#s18"><span class="code">S18</span>设置</a>
   <a class="ti" href="#s19"><span class="code">S19</span>远程管理</a>
@@ -72,8 +72,8 @@
           <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" style="fill:var(--md-primary)" clip-path="url(#sh-cookie4)"/><path d="M41 33 69 50 41 67z" style="fill:var(--md-on-primary);stroke:var(--md-on-primary)" stroke-width="8" stroke-linejoin="round"/></svg>
           <h1>myBox</h1>
         </div>
-        <p class="lede">一个兼容 <strong>TVBox 配置协议</strong>的影视聚合播放器，同时接入 <strong>Emby / Jellyfin</strong> 与 WebDAV 网盘。这份设计稿画出了它在<strong>手机、平板、电视、折叠屏和双屏设备</strong>上的每一个界面。</p>
-        <p class="stamp">征求意见稿 v0.2，2026 年 11 月 13 日。依据《TVBox 协议与实现规范》v1.3，界面元素均可在规范中找到对应字段。</p>
+        <p class="lede">一个兼容 <strong>TVBox 配置协议</strong>的影视聚合播放器，同时接入 <strong>Emby / Jellyfin</strong>、SMB 共享与 WebDAV 网盘。这份设计稿画出了它在<strong>手机、平板、电视、折叠屏和双屏设备</strong>上的每一个界面。</p>
+        <p class="stamp">征求意见稿 v0.3，2026 年 11 月 13 日。依据《TVBox 协议与实现规范》v1.3，界面元素均可在规范中找到对应字段。</p>
         <div class="ctas">
           <a class="dbtn" href="#s03"><i class="ms">play_arrow</i>从首页开始看</a>
           <a class="dbtn tonal" href="https://github.com/mytv-android/myBox/issues/new?title=%5B%E6%95%B4%E4%BD%93%5D%20&body=%E8%AE%BE%E5%A4%87%EF%BC%9A%0A%E7%95%8C%E9%9D%A2%E7%BC%96%E5%8F%B7%EF%BC%9A%0A%E6%84%8F%E8%A7%81%EF%BC%9A%0A" target="_blank" rel="noopener"><i class="ms">rate_review</i>提意见</a>
@@ -147,12 +147,12 @@
       </div>
 
       <h4 class="sub">信息架构</h4>
-      <p class="prose">一级入口五个，电视与平板把它们放进侧导航，手机放在底部导航栏。「媒体库」把 Emby、Jellyfin、WebDAV、AList 和本地文件收在一起；它们在切源面板里与 TVBox 站点并列，统称为「源」。</p>
+      <p class="prose">一级入口五个，电视与平板把它们放进侧导航，手机放在底部导航栏。「媒体库」把 Emby、Jellyfin、SMB、WebDAV、AList 和本地文件收在一起；它们在切源面板里与 TVBox 站点并列，统称为「源」。</p>
       <div class="ia" style="margin-top:20px">
         <div class="col"><h6><i class="ms fill">home</i>首页</h6><a href="#s03"><code>S03</code>首页推荐</a><a href="#s04"><code>S04</code>切源面板</a><a href="#s06"><code>S06</code>分类与筛选</a><a href="#s08"><code>S08</code>详情</a><a href="#s09"><code>S09</code>同名换源</a><a href="#s10"><code>S10</code>播放器</a><a href="#s11"><code>S11</code>解析与嗅探</a></div>
         <div class="col"><h6><i class="ms fill">live_tv</i>直播</h6><a href="#s12"><code>S12</code>直播播放与频道列表</a><a href="#s13"><code>S13</code>节目单与回看</a><a href="#s04"><code>S04</code>直播源切换</a></div>
         <div class="col"><h6><i class="ms fill">search</i>搜索</h6><a href="#s07"><code>S07</code>聚合搜索</a><a href="#s19"><code>S19</code>手机推送搜索词</a></div>
-        <div class="col"><h6><i class="ms fill">video_library</i>媒体库</h6><a href="#s15"><code>S15</code>Emby / Jellyfin</a><a href="#s16"><code>S16</code>WebDAV、AList 与本地</a><a href="#s17"><code>S17</code>投屏与推送</a></div>
+        <div class="col"><h6><i class="ms fill">video_library</i>媒体库</h6><a href="#s15"><code>S15</code>Emby / Jellyfin</a><a href="#s16"><code>S16</code>SMB、WebDAV、AList 与本地</a><a href="#s17"><code>S17</code>投屏与推送</a></div>
         <div class="col"><h6><i class="ms fill">person</i>我的</h6><a href="#s14"><code>S14</code>历史、收藏、追剧</a><a href="#s05"><code>S05</code>源中心</a><a href="#s18"><code>S18</code>设置</a><a href="#s19"><code>S19</code>远程管理</a><a href="#s01"><code>S01</code>启动</a><a href="#s02"><code>S02</code>添加源</a><a href="#s20"><code>S20</code>提示与错误</a></div>
       </div>
       <div class="callout"><i class="ms">info</i><div><b>术语约定。</b>本稿中「仓库」指一个配置地址（规范 §1.2 的「配置」，含多仓订阅 <code>urls</code>）；「线路」指多仓订阅里的一条 <code>urls[]</code>；「站点」指 <code>sites[]</code> 中的一项；「源」是用户口语，泛指以上任意一层以及媒体服务器。界面文案统一使用这几个词。</div></div>
@@ -287,7 +287,7 @@
             <tr><td>爬虫站（JAR / JS / Python）</td><td>曲奇 9</td></tr>
             <tr><td>HTTP API（type 4）</td><td>宝石</td></tr>
             <tr><td>Emby / Jellyfin</td><td>四叶</td></tr>
-            <tr><td>WebDAV / AList / 本地</td><td>拱形（像文件夹）</td></tr>
+            <tr><td>SMB / WebDAV / AList / 本地</td><td>拱形（像文件夹）</td></tr>
             <tr><td>直播源</td><td>胶囊</td></tr>
             <tr><td>用户头像</td><td>圆，选中时变为晴日</td></tr>
           </table>
@@ -442,7 +442,7 @@
 
   <footer class="end">
     <div class="wrap">
-      <div>myBox UI 设计稿 v0.2。片名、海报、人物与站点名称均为虚构，海报由页面脚本实时绘制。</div>
+      <div>myBox UI 设计稿 v0.3。片名、海报、人物与站点名称均为虚构，海报由页面脚本实时绘制。</div>
       <div><a href="https://github.com/mytv-android/myBox" target="_blank" rel="noopener">github.com/mytv-android/myBox</a></div>
     </div>
   </footer>

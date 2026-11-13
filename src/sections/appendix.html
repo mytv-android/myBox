@@ -18,7 +18,8 @@
         <tr><td>DLNA、附近 TVBox、外部播放器</td><td>§5.13、§5.8.3</td><td><a href="#s17">S17</a> 投屏与推送</td></tr>
         <tr><td>本地服务 9978、<code>/action</code> 远程管理</td><td>§8.2、§8.8</td><td><a href="#s19">S19</a> 远程管理</td></tr>
         <tr><td>设置键（<code>HawkConfig</code>）、弹幕设置键</td><td>§5.8.0、§5.12.2.5</td><td><a href="#s18">S18</a> 设置</td></tr>
-        <tr><td>WebDAV / AList</td><td>§4.7、§4.9</td><td><a href="#s16">S16</a> 网盘与本地</td></tr>
+        <tr><td>WebDAV / AList</td><td>§4.7、§4.9</td><td><a href="#s16">S16</a> NAS、网盘与本地</td></tr>
+        <tr><td>SMB / Samba：配置里的 <code>csp_Samba</code>、本地添加的共享、代理转发</td><td>§4.7、§5.9</td><td><a href="#s16">S16</a> 发现、登录、选择共享与播放，<a href="#s02">S02</a> 首次添加</td></tr>
         <tr><td>Emby / Jellyfin：认证、<code>UserViews</code>、<code>PlaybackInfo</code>、进度上报</td><td>§10</td><td><a href="#s15">S15</a> 媒体服务器</td></tr>
         <tr><td><code>wallpaper</code>、<code>notice</code> / <code>msg</code></td><td>§3.1、§3.7</td><td><a href="#s03">S03</a> 首页背景，<a href="#s20">S20</a> 公告</td></tr>
       </table></div>
@@ -47,6 +48,7 @@
             <li><b>配置</b>：宽松 JSON 解析（容忍注释、单引号、尾逗号），相对路径以配置最终 URL 为基准（§3.8、§9.3）。</li>
             <li><b>爬虫</b>：JAR 用 <code>DexClassLoader</code>；JS 用 QuickJS；Python 用 Chaquopy，作为可选构建风味（§7.13.9.7）。</li>
             <li><b>播放</b>：Media3 ExoPlayer 为主内核，FFmpeg 扩展做软解；外部播放器按 §5.8.3 投递。</li>
+            <li><b>SMB</b>：smbj（Apache-2.0）负责 SMB 2.0.2–3.1.1，smbj-rpc（BSD-3-Clause）列出共享；SMB1 只在用户确认后用 jcifs-ng（LGPL-2.1，作为独立依赖引入、不改源码）。smbj 依赖 BouncyCastle，Android 上要打包完整版，不能用系统自带的精简版。播放统一走本地代理转成 http 地址（§5.9）。</li>
             <li><b>本地服务</b>：端口 9978 起递增，承载代理、远程管理与「附近 myBox」发现。</li>
             <li><b>许可</b>：TVBoxOS-M3 为 AGPL-3.0，myBox 按规范重新实现协议，不直接复制其代码。</li>
           </ul>
@@ -82,11 +84,13 @@
         <tr><td>Q10</td><td>是否需要「儿童模式」或「隐藏站点需要密码」？</td><td>本稿未设计，若需要可放在设置的「数据」分组。</td></tr>
         <tr><td>Q11</td><td>Android 6.0–11 上是否打开 Haze 的实验性 RenderScript 模糊？</td><td>不打开，统一用着色层。若希望旧手机也有玻璃质感，可以只给不滚动的面板（切源面板、对话框）打开。</td></tr>
         <tr><td>Q12</td><td>电视的切源入口放在侧栏最上面，是否够好找？</td><td>侧栏顶部的源头像 + 全局菜单键，首次进入首页提示一次菜单键；右上角只留时钟。备选：把源头像放进顶部分类行的最左边。</td></tr>
+        <tr><td>Q13</td><td>只支持 SMB1 的老设备（路由器硬盘、老 NAS）要不要支持？SMB1 有已知的安全问题，但这类设备在家里很常见。</td><td>支持，但默认不连：发现时标出「仅 SMB1」，连接前弹出说明，由用户确认；确认后这个位置一直带着 SMB1 标签。</td></tr>
       </table></div>
       <div class="callout"><i class="ms">rate_review</i><div><b>如何提意见。</b>每个界面标题旁都有「对这一屏提意见」，会在 GitHub 上新建一条带界面编号的 Issue。也可以直接在 Issue 里写「Q3 同意」这样的简短回复。</div></div>
 
       <h4 class="sub">版本记录</h4>
       <ul class="dots">
+        <li><b>v0.3，2026-11-13</b>：支持 SMB / Samba。<a href="#s16">S16</a> 改为「NAS、网盘与本地文件」：平板浏览 SMB 共享，新增设备发现、登录与选择共享、SMB1 提示、电视用手机填写账号四组画面；<a href="#s02">S02</a>、<a href="#s05">S05</a> 增加 SMB 入口；附录增加 Q13。</li>
         <li><b>v0.2，2026-11-13</b>：按第一轮意见修改。
           <ul>
             <li>电视切源入口从首页右上角的胶囊移到侧栏最上面，右上角改为时钟（<a href="#s03">S03</a>、<a href="#s06">S06</a>、<a href="#tv">第 5 章</a>）。</li>

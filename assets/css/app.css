@@ -429,6 +429,7 @@
 .kind.k-emby { background: #2d5e2a; color: #d4ffcc; }
 .kind.k-jf { background: #3b2f70; color: #dcd4ff; }
 .kind.k-dav { background: #2e4f57; color: #c9f2fb; }
+.kind.k-smb { background: #5c3b2e; color: #ffd8c8; }
 .kind.k-live { background: #6e2430; color: #ffd6dc; }
 
 .dot-ok, .dot-warn, .dot-bad { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }

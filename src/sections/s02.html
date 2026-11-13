@@ -30,7 +30,7 @@
                   <div class="li two" style="min-height:66px"><span class="li-lead" data-shape="cookie9" style="width:40px;height:40px;background:var(--md-secondary-container);color:var(--md-on-secondary-container)"><i class="ms s20">qr_code_scanner</i></span><span class="li-body"><span class="li-h t-ts">扫码</span><span class="li-s">扫配置二维码，或扫电视上的推送码</span></span><span class="li-trail"><i class="ms">chevron_right</i></span></div>
                   <div class="li two" style="min-height:66px"><span class="li-lead" data-shape="pill" style="width:40px;height:40px;background:var(--md-secondary-container);color:var(--md-on-secondary-container)"><i class="ms s20">devices</i></span><span class="li-body"><span class="li-h t-ts">从电脑推送</span><span class="li-s">同一 Wi-Fi 下用浏览器粘贴地址</span></span><span class="li-trail"><i class="ms">chevron_right</i></span></div>
                   <div class="li two" style="min-height:66px"><span class="li-lead" data-shape="clover4" style="width:40px;height:40px;background:#3b2f70;color:#dcd4ff"><i class="ms s20">dns</i></span><span class="li-body"><span class="li-h t-ts">连接 Emby / Jellyfin</span><span class="li-s">自动发现局域网里的服务器</span></span><span class="li-trail"><i class="ms">chevron_right</i></span></div>
-                  <div class="li two" style="min-height:66px"><span class="li-lead" data-shape="arch" style="width:40px;height:40px;background:#2e4f57;color:#c9f2fb"><i class="ms s20">cloud</i></span><span class="li-body"><span class="li-h t-ts">添加 WebDAV / AList</span><span class="li-s">浏览网盘里的视频，直接播放</span></span><span class="li-trail"><i class="ms">chevron_right</i></span></div>
+                  <div class="li two" style="min-height:66px"><span class="li-lead" data-shape="arch" style="width:40px;height:40px;background:#2e4f57;color:#c9f2fb"><i class="ms s20">cloud</i></span><span class="li-body"><span class="li-h t-ts">添加 NAS 或网盘</span><span class="li-s">SMB 共享、WebDAV、AList，直接播放</span></span><span class="li-trail"><i class="ms">chevron_right</i></span></div>
                 </div></div>
                 <div class="abs flex jcc" style="bottom:28px;left:0;right:0"><span class="btn text"><i class="ms">settings_backup_restore</i>从备份恢复</span></div>
                 <div class="gesturebar"></div>
@@ -79,7 +79,7 @@
               <div class="app" data-theme-poster="p13">
                 <div class="statusbar"><span>21:33</span><span class="sb-ic"><i class="ms">signal_cellular_alt</i><i class="ms">wifi</i><i class="ms">battery_5_bar</i></span></div>
                 <div class="topbar flat" style="margin-top:36px"><span class="icon-btn"><i class="ms">arrow_back</i></span><span class="title grow">连接媒体服务器</span></div>
-                <div class="px16"><div class="tabs pills"><span class="tab on">Emby / Jellyfin</span><span class="tab">WebDAV / AList</span></div></div>
+                <div class="px16"><div class="tabs pills"><span class="tab on">Emby / Jellyfin</span><span class="tab">NAS 与网盘</span></div></div>
                 <div class="flex aic g8" style="padding:18px 16px 8px"><span class="t-ts c-var f1"><span class="pin-pad" data-pin="6" data-pin-pos="tr">在局域网里找到 2 台</span></span><span class="loading-ind sm"></span><span class="t-bs c-var">仍在搜索</span></div>
                 <div class="list" style="padding:0 8px">
                   <div class="li on rounded" style="padding:8px 12px"><span class="li-lead" data-shape="clover4" style="width:40px;height:40px;background:#3b2f70;color:#dcd4ff;font:700 15px/1 var(--font-sans)">J</span><span class="li-body"><span class="li-h t-ts">客厅 Jellyfin</span><span class="li-s">192.168.1.20:8096，10.10.3</span></span><span class="kind k-jf">Jellyfin</span></div>
@@ -200,6 +200,7 @@
               <tr><td>服务器发现</td><td>UDP 7359 广播 <code>who is JellyfinServer?</code>；<code>GET /System/Info/Public</code> 取名称与版本，无需认证（§10.2）</td></tr>
               <tr><td>快速连接</td><td><code>/QuickConnect/Initiate</code> 取码，授权后 <code>/Users/AuthenticateWithQuickConnect</code>；选用户用 <code>/Users/Public</code>（§10.3.3）</td></tr>
               <tr><td>WebDAV / AList</td><td><code>webdav_url</code>、<code>webdav_username</code>、<code>webdav_password</code>；列目录用 <code>PROPFIND</code> 且 <code>Depth: 1</code>（§5.8.0、§4.9.1）</td></tr>
+              <tr><td>SMB</td><td>局域网发现后登录并选择共享，流程见 <a href="#s16">S16</a>；配置里的 <code>csp_Samba</code> 站点随配置一起加载（§4.7）</td></tr>
             </table>
             <ul class="dots" style="margin-top:16px">
               <li><b>添加之后</b>：进入 <a href="#s01">S01</a> 加载；成功后直接落到首页，并弹出一次源胶囊的用法提示。</li>

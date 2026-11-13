@@ -1,10 +1,10 @@
 # myBox
 
-兼容 TVBox 配置协议的影视聚合播放器，同时接入 Emby / Jellyfin 与 WebDAV 网盘。
+兼容 TVBox 配置协议的影视聚合播放器，同时接入 Emby / Jellyfin、SMB 共享与 WebDAV 网盘。
 
 本仓库目前包含：
 
-- **UI 设计稿（征求意见稿 v0.2）**：<https://mytv-android.github.io/myBox/>
+- **UI 设计稿（征求意见稿 v0.3）**：<https://mytv-android.github.io/myBox/>
   覆盖手机、平板、电视、折叠屏与双屏设备，基于 Material 3 Expressive、Haze 模糊材质与封面动态取色。
 - **《TVBox 协议与实现规范》**：[`TVBox协议与实现规范.md`](TVBox协议与实现规范.md)，设计稿中的每个界面元素都能在这里找到对应字段。
 
